@@ -1,3 +1,9 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def main(request):
+    return render(request, 'groups/main.html')
+
+
+def certify(request):
+    return render(request, 'groups/certify.html')

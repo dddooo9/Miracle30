@@ -1,0 +1,38 @@
+body {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-y: hidden;
+}
+
+.main {
+  width: 100%;
+  max-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: var(--layout-padding);
+}
+
+.text_center {
+  text-align: center;
+}
+
+.btn_center {
+  margin: 12px auto;
+}
+
+.btn_right {
+  margin: 12px 0 12px 12px;
+  float: right;
+}
+
+.a_deco {
+  text-decoration: none;
+  color: var(--black-color);
+}
+
+ul,
+li {
+  list-style: none;
+}

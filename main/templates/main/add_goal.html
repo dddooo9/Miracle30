@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/add_goal.css' %}">
+
+<section class="main">
+  <h1 class="goal_title">목표 추가하기</h1>
+  <div class="goal_container">
+    <div class="goal_name">
+      <input type="text" placeholder="나만의 목표를 입력해보세요! ex. 나는야 독서왕">
+    </div>
+    <div class="goal_amount">
+      <span>하루</span>
+      <input class="input1" type="text" placeholder="입력">
+      <span>페이지</span>
+    </div>
+    <button class="btn1 btn_center">등록하기</button>
+  </div>
+</section>
+{% endblock %}
