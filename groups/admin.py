@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import CertifyImage, CertifyText, CertifyFigure
 
-# Register your models here.
+admin.site.register(CertifyImage)
+admin.site.register(CertifyText)
+admin.site.register(CertifyFigure)
