@@ -6,4 +6,12 @@ def main(request):
 
 
 def certify(request):
-    return render(request, 'groups/certify.html')
+    return render(request, 'groups/certify_image.html')
+
+
+def certify(request):
+    return render(request, 'groups/certify_text.html')
+
+
+def certify(request):
+    return render(request, 'groups/certify_figure.html')
