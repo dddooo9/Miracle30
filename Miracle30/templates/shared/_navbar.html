@@ -1,0 +1,66 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
+<nav class="nav_container">
+  <h2 class="nav_title text_center">
+    <a href="{% url 'main:main_login' %}" class="a_deco miracle">MIRACLE</a>
+  </h2>
+  <div class="nav_user">
+    {% if not user.profile.image %}
+    <img class="nav_logo" src="{% static 'img/logo.png' %}" alt="">
+    {% else %}
+    <img class="nav_logo" src="{{ request.user.profile.image.url }}" alt="">
+    {% endif %}
+    <div class="nav_userText">
+      <h3 class="nav_userName">{{request.user.profile.nickname}}</h3>
+      <a href="{% url 'users:mypage' %}" class="nav_mypage a_deco">마이페이지</a>
+    </div>
+  </div>
+  <ul class="nav_category list">
+    <li>
+      <button class="nav_toggleBtn triangle">
+        <i class="fas fa-caret-down"></i>
+      </button>
+      공부
+      <ul class="sublist">
+        <li class="nav_goal">
+          <a href="#" class="a_deco">목표이름</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <button class="nav_toggleBtn triangle">
+        <i class="fas fa-caret-down"></i>
+      </button>
+      취미
+      <ul class="sublist">
+        <li class="nav_goal">
+          <a href="#" class="a_deco">목표이름</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <button class="nav_toggleBtn triangle">
+        <i class="fas fa-caret-down"></i>
+      </button>
+      기타
+      <ul class="sublist">
+        <li class="nav_goal">
+          <a href="#" class="a_deco">목표이름</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <div class="nav_plus">
+    <button class="nav_toggleBtn">
+      <i class="fas fa-plus-circle nav_plusBtn"></i>
+    </button>
+    <ul class="nav_plusList text_center">
+      <li><a href="{% url 'main:add_goal'%}" class="a_deco">추가</a></li>
+    </ul>
+  </div>
+  <a href="{% url 'account_logout' %}" class="btn2 btn_center">로그아웃</a>
+</nav>
+
+<script src="{% static 'js/navbar.js' %}"></script>

@@ -1,0 +1,82 @@
+/* 공통 */
+.nav_toggleBtn {
+  background-color: rgba(56, 13, 13, 0);
+  border: 0;
+  padding: 0;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  padding-top: var(--padding-small);
+}
+
+/* css */
+
+.nav_container {
+  background-color: var(--white-dark-color);
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  padding: var(--layout-padding);
+  font-family: "lgRegular";
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+/* 프로필 */
+.nav_user {
+  display: flex;
+}
+
+.nav_logo {
+  width: 100px;
+}
+
+.nav_userText {
+  padding-left: var(--padding-small);
+}
+
+/* 카테고리 리스트 */
+.nav_category.list .nav_toggleBtn {
+  font-size: var(--font-large);
+  transition: all 0.5s ease-out;
+}
+
+.sublist {
+  display: none;
+}
+
+.triangle.clicked {
+  transform: rotate(-90deg);
+  transition: all 0.5s ease-out;
+}
+
+.sublist.clicked {
+  display: block;
+}
+
+.nav_goal {
+  padding-left: var(--padding-large);
+}
+
+/* 카테고리 추가 */
+.nav_plus {
+  padding-bottom: var(--padding-medium);
+}
+
+.nav_plus .nav_toggleBtn {
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+}
+
+.nav_plusList {
+  display: none;
+}
+
+.nav_plusList.clicked {
+  display: block;
+}

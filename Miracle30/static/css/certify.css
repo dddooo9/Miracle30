@@ -1,0 +1,17 @@
+/*  공통 */
+button.certify_btn {
+  margin: 12px 12px;
+}
+
+.certify_btnList {
+  display: flex;
+  justify-content: center;
+}
+
+/* 공부시간 */
+.goal_time {
+  font-size: 10vw;
+  font-weight: 800;
+}
+
+/* 기상시간 */

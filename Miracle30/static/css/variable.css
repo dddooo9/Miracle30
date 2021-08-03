@@ -1,0 +1,44 @@
+:root {
+  --white-color: #fff;
+  --white-dark-color: #f5f7fa;
+  --black-color: #140a00;
+  --blue-color: #045fd4;
+  --red-color: #ff0000;
+  --grey-dark-color: #909090;
+  --grey-light-color: #e0c0e0;
+
+  --main-orange-color: #ffc107;
+  --sub-orange-color: #fce403;
+  --point-green-color: #bde609;
+
+  --padding-small: 12px;
+  --padding-medium: 14px;
+  --padding-large: 20px;
+
+  --layout-padding: 3em;
+
+  --font-large: 18px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+}
+
+@font-face {
+  font-family: "fradmit";
+  src: url("../font/FRADMIT.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "fradmd";
+  src: url("../font/FRAMD.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "lgRegular";
+  src: url("../font/LG_REGULAR.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "lgSemibold";
+  src: url("../font/LG_SEMIBOLD.ttf") format("truetype");
+}

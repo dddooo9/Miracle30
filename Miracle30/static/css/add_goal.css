@@ -1,0 +1,28 @@
+.goal_name {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: var(--padding-large) 0;
+}
+
+.goal_name > input {
+  width: 60%;
+  text-align: center;
+  background-color: var(--white-dark-color);
+  height: 60px;
+  width: 60%;
+  border: none;
+  color: var(--grey-dark-color);
+  font-size: var(--font-large);
+}
+
+.goal_amount {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  padding: var(--padding-large) 0;
+}
+
+.goal_amount > input {
+  margin: 0 12px;
+}
