@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/mypage.css' %}">
+
+<section class="main">
+  <h1 class="my_title">마이페이지</h1>
+  <div class="my_tab">
+    <button class="btn clicked my_goalBtn">나의 목표 보기</button>
+    <button class="btn my_infoBtn">개인 정보 보기</button>
+  </div>
+  <div class="my_content">
+    <div class="my_goal">
+      <table>
+        <thead>
+          <tr>
+            <th class="my_goal_name">목표</th>
+            <th>7/1</th>
+            <th>7/2</th>
+            <th>7/3</th>
+            <th>7/4</th>
+            <th>7/5</th>
+            <th>7/6</th>
+            <th>7/7</th>
+            <th>7/8</th>
+            <th>7/9</th>
+            <th>7/10</th>
+            <th>7/11</th>
+            <th>7/12</th>
+            <th>7/13</th>
+            <th>7/14</th>
+            <th>7/15</th>
+            <th>7/16</th>
+            <th>7/17</th>
+            <th>7/18</th>
+            <th>7/19</th>
+            <th>7/20</th>
+          </tr>
+        </thead>
+        <tr>
+          <td class="my_goal_name">독서</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+        </tr>
+        <tr>
+          <td class="my_goal_name">공부</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+        </tr>
+        <tr>
+          <td class="my_goal_name">운동</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+        </tr>
+        <tr>
+          <td class="my_goal_name">기상</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+        </tr>
+        <tr>
+          <td class="my_goal_name">자율</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+        </tr>
+        <tr>
+          <td class="my_goal_name">운동</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+          <td>O</td>
+        </tr>
+      </table>
+    </div>
+    <div class="my_info">
+      <ul class="my_info_list">
+        {% if not user.profile.image %}
+        <img class="nav_logo" src="{% static 'img/logo.png' %}" alt="">
+        {% else %}
+        <img class="nav_logo" src="{{user.profile.image.url}}" alt="">
+        {% endif %}
+        <li>아이디<span>{{user}}</span></li>
+        <li>닉네임<span>{{user.profile.nickname}}</span></li>
+      </ul>
+      <a href="{% url 'users:mypage_update' %}" class="btn1 btn_center">개인정보 수정</a>
+    </div>
+  </div>
+  </div>
+</section>
+
+<script src="{% static 'js/mypage.js' %}"></script>
+{% endblock %}
