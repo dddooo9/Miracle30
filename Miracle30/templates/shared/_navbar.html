@@ -24,9 +24,13 @@
       </button>
       공부
       <ul class="sublist">
-        <li class="nav_goal">
-          <a href="#" class="a_deco">목표이름</a>
-        </li>
+        {% for goal in request.user.goal_set.all %}
+            {% if goal.category == 'study' %}
+                <li class="nav_goal">
+                    <a href="#" class="a_deco">{{ goal.name }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
       </ul>
     </li>
     <li>
@@ -35,9 +39,13 @@
       </button>
       취미
       <ul class="sublist">
-        <li class="nav_goal">
-          <a href="#" class="a_deco">목표이름</a>
-        </li>
+        {% for goal in request.user.goal_set.all %}
+            {% if goal.category == 'hobby' %}
+                <li class="nav_goal">
+                    <a href="#" class="a_deco">{{ goal.name }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
       </ul>
     </li>
     <li>
@@ -46,9 +54,13 @@
       </button>
       기타
       <ul class="sublist">
-        <li class="nav_goal">
-          <a href="#" class="a_deco">목표이름</a>
-        </li>
+        {% for goal in request.user.goal_set.all %}
+            {% if goal.category == 'etc' %}
+                <li class="nav_goal">
+                    <a href="#" class="a_deco">{{ goal.name }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
       </ul>
     </li>
   </ul>
