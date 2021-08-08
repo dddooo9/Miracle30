@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/mypage.css' %}">
+
+<section class="main">
+  <h1 class="my_title">마이페이지</h1>
+  <div class="my_tab">
+    <button class="btn clicked my_infoBtn">개인 정보 보기</button>
+  </div>
+  <div class="my_content">
+    <form action="{% url 'users:mypage_update' %}" method="POST" enctype="multipart/form-data">
+      {%csrf_token%}
+      <ul class="my_info_list">
+        <img id="image_section" src="#" alt="" />
+        <li class="my_info_update">프로필
+          <input type="file" name="image" id="imageInput">
+        </li>
+        <li class="my_info_update">닉네임
+          <input type="text" name="nickname" value="{{user.profile.nickname}}" class="input1">
+        </li>
+      </ul>
+      <button type="submit" class="btn1 btn_center">개인정보 수정</button>
+    </form>
+  </div>
+  </div>
+  </div>
+</section>
+
+<script src="{% static 'js/mypage.js' %}"></script>
+{% endblock %}
