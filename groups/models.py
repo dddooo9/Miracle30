@@ -23,5 +23,5 @@ class CertifyFigure(models.Model):
     goal = models.ForeignKey(Goal, on_delete=models.CASCADE, related_name='figures')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created = models.DateField()
-    figure = models.IntegerField()
+    figure = models.FloatField()
     achievement = models.BooleanField(default=False)
