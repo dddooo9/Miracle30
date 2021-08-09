@@ -1,6 +1,4 @@
 from django.contrib import admin
-from .models import CertifyImage, CertifyText, CertifyFigure
+from .models import Certify
 
-admin.site.register(CertifyImage)
-admin.site.register(CertifyText)
-admin.site.register(CertifyFigure)
+admin.site.register(Certify)

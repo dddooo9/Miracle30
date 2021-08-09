@@ -27,7 +27,7 @@
         {% for goal in request.user.goal_set.all %}
             {% if goal.category == 'study' %}
                 <li class="nav_goal">
-                    <a href="#" class="a_deco">{{ goal.name }}</a>
+                    <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
                 </li>
             {% endif %}
         {% endfor %}
@@ -42,7 +42,7 @@
         {% for goal in request.user.goal_set.all %}
             {% if goal.category == 'hobby' %}
                 <li class="nav_goal">
-                    <a href="#" class="a_deco">{{ goal.name }}</a>
+                    <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
                 </li>
             {% endif %}
         {% endfor %}
@@ -57,7 +57,7 @@
         {% for goal in request.user.goal_set.all %}
             {% if goal.category == 'etc' %}
                 <li class="nav_goal">
-                    <a href="#" class="a_deco">{{ goal.name }}</a>
+                    <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
                 </li>
             {% endif %}
         {% endfor %}
