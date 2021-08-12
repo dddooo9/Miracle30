@@ -96,3 +96,6 @@ def show_certify(request, goal_id):
 
 def select(request):
     return render(request, 'groups/select.html')
+
+def make_group(request):
+    return render(request, 'groups/make_group.html')
