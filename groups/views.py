@@ -93,3 +93,6 @@ def show_certify(request, goal_id):
     goal = Goal.objects.get(pk=goal_id)
     certifies = goal.certifies.all()
     return render(request, 'groups/show_certify.html', {'goal': goal, 'certifies': certifies})
+
+def select(request):
+    return render(request, 'groups/select.html')
