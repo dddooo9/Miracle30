@@ -8,8 +8,10 @@ from django.utils import timezone
 
 def main(request, goal_id):
     goal = get_object_or_404(Goal, pk=goal_id)
+    board = get_board(goal)
     context = {
         'goal': goal,
+        'dates': board['dates'],
     }
     return render(request, 'groups/main.html', context)
 
@@ -30,7 +32,7 @@ def certify(request, goal_id):
 def personal(request, goal_id):
     goal = get_object_or_404(Goal, pk=goal_id)
     status = get_status(goal)
-    board = get_board(goal, status['start_days'])
+    board = get_board(goal)
     context = {
         'goal': goal,
         'start_days': status['start_days'],
@@ -63,16 +65,12 @@ def get_status(goal):   # 시작, 성공, 연속 일수를 리턴하는 함수
     return res
 
 
-def get_board(goal, start_days):    # 도장판의 날짜와 성공 여부를 리턴하는 함수
+def get_board(goal):    # 도장판의 날짜와 성공 여부를 리턴하는 함수
     dates = []
     achievements = []
     for i in range(30):
-        if start_days <= 30:  # 시작한지 1달이 되지 않았으면
-            date = goal.created + timedelta(days=i)  # 시작한 날짜부터 오늘까지 날짜를 보여준다
-        else:  # 시작한지 1달이 넘었으면
-            date = datetime.date.today() - timedelta(days=i)  # 오늘 날짜 이전 30일을 보여준다
-        # 날짜
-        dates.append(date.strftime('%m/%d'))
+        date = goal.start_date + timedelta(days=i)
+        dates.append(date.strftime('%-m/%-d'))
         # 성공 여부
         certify = goal.certifies.filter(created=date)
         if certify:  # 날짜에 해당하는 인증이 있으면

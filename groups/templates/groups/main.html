@@ -1,77 +1,62 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load index %}
 {% block content %}
 
 <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
 <section class="main">
   <div class="goal_container">
-    <h1 class="goal_title">나는야 독서왕</h1>
-    <h3 class="goal_subtitle">하루 5페이지 독서하기</h3>
+    <h1 class="goal_title text_center">{{ goal.name }}</h1>
+    <h3 class="goal_subtitle text_center">하루 {{ goal.goal_page }}페이지 독서하기</h3>
   </div>
-  <div class="goal_boxes">
-    <div class="goal_box start">
-      시작<br><span class="goal_day">22</span><br>일째
-    </div>
-    <div class="goal_box continuity">
-      연속<br><span class="goal_day">16</span><br>일째
-    </div>
-    <div class="goal_box success">
-      성공<br><span class="goal_day">18</span><br>일째
-    </div>
-  </div>
+
   <div class="goal_check">
     <table>
       <thead>
+      <!-- 날짜 1~10일 -->
         <tr>
-          <th>7/1</th>
-          <th>7/2</th>
-          <th>7/3</th>
-          <th>7/4</th>
-          <th>7/5</th>
-          <th>7/6</th>
-          <th>7/7</th>
-          <th>7/8</th>
-          <th>7/9</th>
-          <th>7/10</th>
-          <th>7/11</th>
-          <th>7/12</th>
-          <th>7/13</th>
-          <th>7/14</th>
-          <th>7/15</th>
-          <th>7/16</th>
-          <th>7/17</th>
-          <th>7/18</th>
-          <th>7/19</th>
-          <th>7/20</th>
+          {% for i in "x"|rjust:"10" %}
+            <th>{{ dates|index_1:forloop.counter0 }}</th>
+          {% endfor %}
+        </tr>
+      <!-- 잔디밭 1~10일 -->
+        <tr>
+          {% for i in "x"|rjust:"10" %}
+            <th style="background-color:#ffc107;"></th>
+          {% endfor %}
+        </tr>
+      <!-- 날짜 10~20일 -->
+        <tr>
+          {% for i in "x"|rjust:"10" %}
+            <th>{{ dates|index_2:forloop.counter0 }}</th>
+          {% endfor %}
+        </tr>
+      <!-- 잔디밭 10~20일 -->
+        <tr>
+          {% for i in "x"|rjust:"10" %}
+            <th style="background-color:#ffc107;"></th>
+          {% endfor %}
+        </tr>
+      <!-- 날짜 20~30일 -->
+        <tr>
+          {% for i in "x"|rjust:"10" %}
+            <th>{{ dates|index_3:forloop.counter0 }}</th>
+          {% endfor %}
+        </tr>
+      <!-- 잔디밭 20~30일 -->
+        <tr>
+          {% for i in "x"|rjust:"10" %}
+            <th style="background-color:#ffc107;"></th>
+          {% endfor %}
         </tr>
       </thead>
-      <tr>
-        <td>O</td>
-        <td>O</td>
-        <td>O</td>
-        <td>O</td>
-        <td>O</td>
-        <td>O</td>
-        <td>O</td>
-        <td>O</td>
-        <td>O</td>
-        <td>O</td>
-        <td>O</td>
-        <td>O</td>
-        <td>O</td>
-        <td>O</td>
-        <td>O</td>
-        <td>O</td>
-        <td>O</td>
-        <td>O</td>
-        <td>O</td>
-        <td>O</td>
-      </tr>
     </table>
   </div>
   <div class="goal_verify">
     <a class="btn1" href="{% url 'groups:certify' goal.id %}">인증하기</a>
+    <a class="btn1" href="{% url 'groups:personal' goal.id %}">개인 도장판</a>
+    <a class="btn1" href="{% url 'groups:show_certify' goal.id %}">인증 열람</a>
   </div>
 </section>
 
