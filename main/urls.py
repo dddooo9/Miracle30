@@ -7,4 +7,5 @@ urlpatterns = [
     path('login/', views.main_login, name="main_login"),
     path('goal_main/', views.goal_main, name="goal_main"),
     path('add_goal/', views.add_goal, name="add_goal"),
+    path('create_goal/', views.create_goal, name="create_goal"),
 ]
