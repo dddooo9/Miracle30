@@ -10,7 +10,7 @@
     <div class="select_group">
       {% for goal in goals %}
         <div class="select_card">
-            {{goal.name}}
+            <a href="{% url 'main:goal_detail' goal.pk %}">{{goal.name}}</a>
         </div>
       {% endfor %}
     </div>

@@ -15,8 +15,13 @@ def goal_main(request):
     return render(request, 'main/goal_main.html', {'goals':goals})
 
 
+def goal_detail(request, goal_id):
+    goal = Goal.objects.get(pk=goal_id)
+    return render(request, 'main/goal_detail.html', {'goal': goal})
+
 def add_goal(request):
     return render(request, 'main/add_goal.html')
+
 
 def create_goal(request):
     new_goal = Goal()
