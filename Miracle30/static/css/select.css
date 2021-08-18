@@ -1,0 +1,12 @@
+.select_group {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.select_card {
+  border: 1px solid;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: var(--padding-large) 0;
+}

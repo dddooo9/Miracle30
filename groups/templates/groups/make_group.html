@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/select.css' %}">
+
+<section class="main">
+  <h1 class="title">그룹 만들기</h1>
+  <div class="container">
+    <div class="make_group">
+      <div class="make_title">
+        제목
+        <input class="input1">
+      </div>
+      <div class="make_content">
+        내용
+        <textarea>hello</textarea>
+      </div>
+      <div class="make_people">
+        몇명
+        <input class="input1">
+      </div>
+    </div>
+    <button class="btn1 btn_center">만들기</button>
+  </div>
+</section>
+{% endblock %}

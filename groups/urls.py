@@ -7,5 +7,6 @@ urlpatterns = [
     path('<int:goal_id>/certify/', views.certify, name="certify"),
     path('<int:goal_id>/personal/', views.personal, name="personal"),
     path('<int:goal_id>/show_certify/', views.show_certify, name="show_certify"),
-    
+    path('select/', views.select, name="select"),
+    path('make_group/', views.make_group, name="make_group")
 ]

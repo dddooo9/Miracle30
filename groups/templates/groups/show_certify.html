@@ -3,16 +3,16 @@
 {% block content %}
 
 {% for certify in certifies %}
-    <p>{{ certify.user }}</p>
-    <p>{{ certify.created }}</p>
-    {% if goal.certify_method == 'image' %}
-        {% if certify.image %}
-            <img src="{{ certify.image.url }}" alt="image">
-        {% endif %}
-    {% elif goal.certify_method == 'text' %}
-        <p>{{ certify.text }}</p>
-    {% else %}
-        <p>{{ certify.value }}</p>
-    {% endif %}
+<p>{{ certify.user }}</p>
+<p>{{ certify.created }}</p>
+{% if goal.certify_method == 'image' %}
+{% if certify.image %}
+<img src="{{ certify.image.url }}" alt="image">
+{% endif %}
+{% elif goal.certify_method == 'text' %}
+<p>{{ certify.text }}</p>
+{% else %}
+<p>{{ certify.value }}</p>
+{% endif %}
 {% endfor %}
 {% endblock %}
