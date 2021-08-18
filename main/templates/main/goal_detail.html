@@ -11,5 +11,6 @@
     <p>작성 날짜 : {{goal.created}}</p>
     <p>시행 날짜 : {{goal.start_date}}</p>
     <p>참가비 : {{goal.fee}}</p>
+    <a href="{% url 'main:update_goal' goal.pk %}">수정</a>
 </section>
 {% endblock %}

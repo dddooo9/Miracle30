@@ -19,6 +19,7 @@ def goal_detail(request, goal_id):
     goal = Goal.objects.get(pk=goal_id)
     return render(request, 'main/goal_detail.html', {'goal': goal})
 
+
 def add_goal(request):
     return render(request, 'main/add_goal.html')
 
@@ -43,3 +44,27 @@ def create_goal(request):
     
     new_goal.save()    
     return redirect('main:goal_main')
+
+
+def update_goal(request, goal_id):
+    goal = Goal.objects.get(pk=goal_id)
+    if request.method == "POST":
+        goal.category = request.POST['category']
+        goal.certify_method = request.POST['certify_method']
+        goal.manager = request.user
+        goal.name = request.POST['name']
+        goal.description = request.POST['description']
+        goal.created = timezone.now()
+        goal.start_date = request.POST['start_date']
+        goal.fee = request.POST['fee']
+        goal.criteria = False
+
+        # 인증 방식이 수치인 경우 인증 기준의 값과 단위를 db에 저장
+        if request.POST['certify_method'] == 'figure':
+            goal.criteria = True
+            goal.value = request.POST['value']
+            goal.unit = request.POST['unit']
+        
+        goal.save()
+        return redirect('main:goal_detail', goal.id)
+    return render(request, 'main/update_goal.html', {'goal':goal})
