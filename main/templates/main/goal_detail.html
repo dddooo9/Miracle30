@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="main">
+    <h1>{{goal.name}}</h1>
+    <p>카테고리 : {{goal.category}}</p>
+    <p>인증방식 : {{goal.certify_method}}</p>
+    <p>매니저 : {{goal.manager}}</p>
+    <p>설명 : {{goal.description}}</p>
+    <p>작성 날짜 : {{goal.created}}</p>
+    <p>시행 날짜 : {{goal.start_date}}</p>
+    <p>참가비 : {{goal.fee}}</p>
+    {% if goal.certify_method == 'figure' %}
+      <p>인증 기준 : {{goal.value}}{{goal.unit}}</p>
+    {% endif %}
+    <a href="{% url 'main:update_goal' goal.pk %}">수정</a>
+</section>
+{% endblock %}
