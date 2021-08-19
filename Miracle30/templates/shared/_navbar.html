@@ -25,11 +25,11 @@
       공부
       <ul class="sublist">
         {% for goal in request.user.goal_set.all %}
-            {% if goal.category == 'study' %}
-                <li class="nav_goal">
-                    <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
-                </li>
-            {% endif %}
+        {% if goal.category == 'study' %}
+        <li class="nav_goal">
+          <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
+        </li>
+        {% endif %}
         {% endfor %}
       </ul>
     </li>
@@ -40,11 +40,11 @@
       취미
       <ul class="sublist">
         {% for goal in request.user.goal_set.all %}
-            {% if goal.category == 'hobby' %}
-                <li class="nav_goal">
-                    <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
-                </li>
-            {% endif %}
+        {% if goal.category == 'hobby' %}
+        <li class="nav_goal">
+          <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
+        </li>
+        {% endif %}
         {% endfor %}
       </ul>
     </li>
@@ -55,11 +55,11 @@
       기타
       <ul class="sublist">
         {% for goal in request.user.goal_set.all %}
-            {% if goal.category == 'etc' %}
-                <li class="nav_goal">
-                    <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
-                </li>
-            {% endif %}
+        {% if goal.category == 'etc' %}
+        <li class="nav_goal">
+          <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
+        </li>
+        {% endif %}
         {% endfor %}
       </ul>
     </li>
@@ -69,7 +69,7 @@
       <i class="fas fa-plus-circle nav_plusBtn"></i>
     </button>
     <ul class="nav_plusList text_center">
-      <li><a href="{% url 'main:add_goal'%}" class="a_deco">추가</a></li>
+      <li><a href="{% url 'groups:group_list'%}" class="a_deco">그룹 참여하기</a></li>
     </ul>
   </div>
   <a href="{% url 'account_logout' %}" class="btn2 btn_center">로그아웃</a>
