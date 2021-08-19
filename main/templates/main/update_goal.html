@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/select.css' %}">
+
+<section class="main">
+  <h1 class="title"><b>{{goal.name}}</b> 수정</h1>
+  <div class="container">
+    <form action="{% url 'main:update_goal' goal.pk%}" method="post">
+    {% csrf_token %}
+    <div class="make_group">
+      <div>
+        카테고리
+        <select name="category" id="category" required>
+          {% if goal.category == "study" %}
+          <option value="study" selected>공부</option>
+          {% else %}
+          <option value="study">공부</option>
+          {% endif %}
+          
+          {% if goal.category == "hobby" %}
+          <option value="hobby" selected>취미</option>
+          {% else %}
+          <option value="hobby">취미</option>
+          {% endif %}
+
+          {% if goal.category == "etc" %}
+          <option value="etc" selected>기타</option>
+          {% else %}
+          <option value="etc">기타</option>
+          {% endif %}
+        
+        </select>
+      </div>
+      <div>
+        인증방식
+        <select name="certify_method" id="certify" required>
+          {% if goal.certify_method == "image" %}
+          <option value="image" selected>이미지</option>
+          {% else %}
+          <option value="image">이미지</option>
+          {% endif %}
+
+          {% if goal.certify_method == "text" %}
+          <option value="text" selected>텍스트</option>
+          {% else %}
+          <option value="text">텍스트</option>
+          {% endif %}
+
+          {% if goal.certify_method == "figure" %}
+          <option value="figure" selected>수치</option>
+          {% else %}
+          <option value="figure">수치</option>
+          {% endif %}
+        </select>
+      </div>
+      <div>
+          목표 시작 날짜
+          <input type="date" name="start_date" value="{{goal.start_date|date:'Y-m-d'}}" required>
+      </div>
+      <div>
+          참가비
+          <input type="number" name="fee" class="input1" value="{{goal.fee}}" required>
+      </div>
+      <div class="make_title">
+        목표 이름
+        <input class="input1" name="name" value="{{goal.name}}" required>
+      </div>
+      <div class="make_content">
+        목표 설명
+        <textarea name="description" required>{{goal.description}}</textarea>
+      </div>
+      <!-- 참여인원 제한 필드 없어서 일단 주석처리
+      <div class="make_people">
+        참여 인원
+        <input type="number" name="member" class="input1" required>
+      </div> -->
+      <div>
+        수치 : 기준값
+        <input type="number" name="value" value="{{goal.value}}" class="input1">
+    </div>
+    <div>
+        수치 : 단위
+        <input name="unit" value="{{goal.unit}}" class="input1">
+    </div>
+    </div>
+    <button type="submit" class="btn1 btn_center">만들기</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

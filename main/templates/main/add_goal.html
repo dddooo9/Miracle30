@@ -2,20 +2,62 @@
 {% load static %}
 {% block content %}
 
-<link rel="stylesheet" href="{% static 'css/add_goal.css' %}">
+<link rel="stylesheet" href="{% static 'css/select.css' %}">
 
 <section class="main">
-  <h1 class="goal_title">목표 추가하기</h1>
-  <div class="goal_container">
-    <div class="goal_name">
-      <input type="text" placeholder="나만의 목표를 입력해보세요! ex. 나는야 독서왕">
+  <h1 class="title">그룹 만들기</h1>
+  <div class="container">
+    <form action="{% url 'main:create_goal' %}" method="post">
+    {% csrf_token %}
+    <div class="make_group">
+      <div>
+        카테고리
+        <select name="category" id="category" required>
+          <option value="study">공부</option>
+          <option value="hobby">취미</option>
+          <option value="etc">기타</option>
+        </select>
+      </div>
+      <div>
+        인증방식
+        <select name="certify_method" id="certify" required>
+          <option value="image">이미지</option>
+          <option value="text">텍스트</option>
+          <option value="figure">수치</option>
+        </select>
+      </div>
+      <div>
+          목표 시작 날짜
+          <input type="date" name="start_date" required>
+      </div>
+      <div>
+          참가비
+          <input type="number" name="fee" class="input1" required>
+      </div>
+      <div class="make_title">
+        목표 이름
+        <input class="input1" name="name" required>
+      </div>
+      <div class="make_content">
+        목표 설명
+        <textarea name="description" required></textarea>
+      </div>
+      <!-- 참여인원 제한 필드 없어서 일단 주석처리
+      <div class="make_people">
+        참여 인원
+        <input type="number" name="member" class="input1" required>
+      </div> -->
+      <div>
+        수치 : 기준값
+        <input type="number" name="value" class="input1">
     </div>
-    <div class="goal_amount">
-      <span>하루</span>
-      <input class="input1" type="text" placeholder="입력">
-      <span>페이지</span>
+    <div>
+        수치 : 단위
+        <input name="unit" class="input1">
     </div>
-    <button class="btn1 btn_center">등록하기</button>
+    </div>
+    <button type="submit" class="btn1 btn_center">만들기</button>
+    </form>
   </div>
 </section>
 {% endblock %}
