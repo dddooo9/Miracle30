@@ -46,7 +46,7 @@ def personal(request, goal_id):
 
 def get_status(goal):   # 시작, 성공, 연속 일수를 리턴하는 함수
     certifies = goal.certifies.all()
-    start_days = (datetime.date.today() - goal.created).days + 1
+    start_days = (datetime.date.today() - goal.start_date).days + 1
     success_days = goal.certifies.filter(achievement=True).count()
     continuity_days = 0
     for i in range(certifies.count()):
