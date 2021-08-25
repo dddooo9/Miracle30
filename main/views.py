@@ -72,7 +72,7 @@ def update_goal(request, goal_id):
             goal.unit = request.POST['unit']
         
         goal.save()
-        return redirect('main:goal_detail', goal.id)
+        return redirect('main:goal_detail', goal_id)
     return render(request, 'main/update_goal.html', {'goal':goal})
 
 
