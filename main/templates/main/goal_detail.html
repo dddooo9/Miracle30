@@ -10,10 +10,25 @@
     <p>설명 : {{goal.description}}</p>
     <p>작성 날짜 : {{goal.created}}</p>
     <p>시행 날짜 : {{goal.start_date}}</p>
+    <p>마감 날짜 : {{goal.deadline}}</p>
     <p>참가비 : {{goal.fee}}</p>
+    <p>모집인원 : {{goal.member_limit}}명</p>
     {% if goal.certify_method == 'figure' %}
-      <p>인증 기준 : {{goal.value}}{{goal.unit}}</p>
+      <p>인증 기준 : {{goal.value}}{{goal.unit}}
+          {% if goal.criteria%} 이상
+          {% else %} 이하
+          {% endif %}
+      </p>
     {% endif %}
-    <a href="{% url 'main:update_goal' goal.pk %}">수정</a>
+
+    <div>
+        {% if request.user == goal.manager %}
+            <a href="{% url 'main:update_goal' goal.pk %}">수정</a>
+            <a>삭제</a>
+            <a>모집 조기 마감</a>
+        {% else %}
+            <a>참여</a>
+        {% endif %}
+    </div>
 </section>
 {% endblock %}
