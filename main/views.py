@@ -17,7 +17,12 @@ def goal_main(request):
 
 def goal_detail(request, goal_id):
     goal = Goal.objects.get(pk=goal_id)
-    return render(request, 'main/goal_detail.html', {'goal': goal})
+    isMember = request.user in goal.member.all()
+    context = {
+        'goal' : goal,
+        'isMember' : isMember
+    }
+    return render(request, 'main/goal_detail.html', context)
 
 
 def add_goal(request):
@@ -75,3 +80,13 @@ def delete_goal(request, goal_id):
     goal = Goal.objects.get(pk=goal_id)
     goal.delete()
     return redirect('main:goal_main')
+
+
+def participate_goal(request, goal_id):
+    goal = Goal.objects.get(pk=goal_id)
+    isMember = request.user in goal.member.all()
+    if isMember:
+        request.user.members.remove(goal)
+    else:
+        request.user.members.add(goal)
+    return redirect('main:goal_detail', goal_id)
