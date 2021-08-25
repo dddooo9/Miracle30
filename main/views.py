@@ -69,3 +69,9 @@ def update_goal(request, goal_id):
         goal.save()
         return redirect('main:goal_detail', goal.id)
     return render(request, 'main/update_goal.html', {'goal':goal})
+
+
+def delete_goal(request, goal_id):
+    goal = Goal.objects.get(pk=goal_id)
+    goal.delete()
+    return redirect('main:goal_main')

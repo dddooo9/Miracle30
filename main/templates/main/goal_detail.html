@@ -24,7 +24,7 @@
     <div>
         {% if request.user == goal.manager %}
             <a href="{% url 'main:update_goal' goal.pk %}">수정</a>
-            <a>삭제</a>
+            <a href="{% url 'main:delete_goal' goal.pk %}">삭제</a>
             <a>모집 조기 마감</a>
         {% else %}
             <a>참여</a>
