@@ -60,6 +60,10 @@
           <input type="date" name="start_date" value="{{goal.start_date|date:'Y-m-d'}}" required>
       </div>
       <div>
+        목표 마감 날짜
+        <input type="date" name="deadline" value="{{goal.deadline|date:'Y-m-d'}}" required>
+      </div>
+      <div>
           참가비
           <input type="number" name="fee" class="input1" value="{{goal.fee}}" required>
       </div>
@@ -71,11 +75,10 @@
         목표 설명
         <textarea name="description" required>{{goal.description}}</textarea>
       </div>
-      <!-- 참여인원 제한 필드 없어서 일단 주석처리
       <div class="make_people">
-        참여 인원
-        <input type="number" name="member" class="input1" required>
-      </div> -->
+        참여 인원수
+        <input type="number" name="member_limit" value="{{goal.member_limit}}" class="input1" required>
+      </div>
       <div>
         수치 : 기준값
         <input type="number" name="value" value="{{goal.value}}" class="input1">
@@ -84,6 +87,22 @@
         수치 : 단위
         <input name="unit" value="{{goal.unit}}" class="input1">
     </div>
+    <div>
+        기준
+        <select name="criteria" id="criteria">
+            {% if goal.criteria %}
+            <option value="true" selected>이상</option>
+            {% else %}
+            <option value="true">이상</option>
+            {% endif %}
+
+            {% if goal.criteria %}
+            <option value="false">이하</option>
+            {% else %}
+            <option value="false" selected>이하</option>
+            {% endif %}
+        </select>
+      </div>
     </div>
     <button type="submit" class="btn1 btn_center">만들기</button>
     </form>
