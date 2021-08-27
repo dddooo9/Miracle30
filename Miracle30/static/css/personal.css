@@ -1,0 +1,18 @@
+.psn_boxes {
+  display: flex;
+  justify-content: center;
+}
+
+.psn_box {
+  border: 1px solid;
+  text-align: center;
+  width: 15%;
+  font-size: 1.2rem;
+  padding: var(--padding-large) 0;
+  margin: 0 12px;
+}
+
+.psn_day {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
