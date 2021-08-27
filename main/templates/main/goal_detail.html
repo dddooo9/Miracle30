@@ -11,22 +11,53 @@
         <h1 class="title text_center">{{goal.name}}</h1>
       </div>
       <div class="detail_main">
-        <p>카테고리 : {{goal.category}}</p>
-        <p>인증방식 : {{goal.certify_method}}</p>
-        <p>매니저 : {{goal.manager}}</p>
-        <p>설명 : {{goal.description}}</p>
-        <p>작성 날짜 : {{goal.created}}</p>
-        <p>시행 날짜 : {{goal.start_date}}</p>
-        <p>마감 날짜 : {{goal.deadline}}</p>
-        <p>참가비 : {{goal.fee}}</p>
-        <p>모집인원 : {{goal.member.count}}/{{goal.member_limit}}명</p>
-        {% if goal.certify_method == 'figure' %}
-        <p>인증 기준 : {{goal.value}}{{goal.unit}}
-          {% if goal.criteria%} 이상
-          {% else %} 이하
+        <table>
+          <tr>
+            <td>카테고리</td>
+            <td>{{goal.category}}</td>
+          </tr>
+          <tr>
+            <td>인증방식</td>
+            <td>{{goal.certify_method}}</td>
+          </tr>
+          <tr>
+            <td>매니저</td>
+            <td>{{goal.manager}}</td>
+          </tr>
+          <tr>
+            <td>설명</td>
+            <td>{{goal.description}}</td>
+          </tr>
+          <tr>
+            <td>작성 날짜</td>
+            <td>{{goal.created}}</td>
+          </tr>
+          <tr>
+            <td>시행 날짜</td>
+            <td>{{goal.start_date}}</td>
+          </tr>
+          <tr>
+            <td>마감 날짜</td>
+            <td>{{goal.deadline}}</td>
+          </tr>
+          <tr>
+            <td>참가비</td>
+            <td>{{goal.fee}}</td>
+          </tr>
+          <tr>
+            <td>모집인원</td>
+            <td>{{goal.member.count}}/{{goal.member_limit}}명</td>
+          </tr>
+          {% if goal.certify_method == 'figure' %}
+          <tr>
+            <td>인증 기준</td>
+            <td>인증 기준 : {{goal.value}}{{goal.unit}}
+              {% if goal.criteria%} 이상
+              {% else %} 이하
+              {% endif %}</td>
+          </tr>
           {% endif %}
-        </p>
-        {% endif %}
+        </table>
       </div>
     </div>
     <div class="detail_btns">
