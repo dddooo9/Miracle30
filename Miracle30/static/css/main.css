@@ -17,14 +17,14 @@
   font-weight: 800;
 }
 
+/* table */
 .goal_check {
-  width: 100%;
-  overflow-x: auto;
   padding: var(--padding-large) 0;
 }
 
 table {
   border-collapse: collapse;
+  margin: auto;
 }
 
 th,
@@ -34,6 +34,12 @@ td {
   padding: var(--padding-small);
 }
 
-.goal_certify {
-  padding: var(--padding-large) 0;
+/* btns */
+.goal_verify {
+  display: flex;
+  justify-content: center;
+}
+
+.goal_verify > a {
+  margin: var(--padding-micro);
 }
