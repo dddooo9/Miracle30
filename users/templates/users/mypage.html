@@ -12,172 +12,22 @@
   </div>
   <div class="my_content">
     <div class="my_goal">
-      <table>
-        <thead>
-          <tr>
-            <th class="my_goal_name">목표</th>
-            <th>7/1</th>
-            <th>7/2</th>
-            <th>7/3</th>
-            <th>7/4</th>
-            <th>7/5</th>
-            <th>7/6</th>
-            <th>7/7</th>
-            <th>7/8</th>
-            <th>7/9</th>
-            <th>7/10</th>
-            <th>7/11</th>
-            <th>7/12</th>
-            <th>7/13</th>
-            <th>7/14</th>
-            <th>7/15</th>
-            <th>7/16</th>
-            <th>7/17</th>
-            <th>7/18</th>
-            <th>7/19</th>
-            <th>7/20</th>
-          </tr>
-        </thead>
-        <tr>
-          <td class="my_goal_name">독서</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-        </tr>
-        <tr>
-          <td class="my_goal_name">공부</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-        </tr>
-        <tr>
-          <td class="my_goal_name">운동</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-        </tr>
-        <tr>
-          <td class="my_goal_name">기상</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-        </tr>
-        <tr>
-          <td class="my_goal_name">자율</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-        </tr>
-        <tr>
-          <td class="my_goal_name">운동</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-          <td>O</td>
-        </tr>
-      </table>
+        <h4>내가 개설한 목표</h4>
+        {% for goal in my_goal %}
+        <div class="main_card">
+          <a href="{% url 'groups:main' goal.pk %}" class="a_deco">{{goal.name}}</a>
+        </div>
+        {% endfor %}
     </div>
+    <div class="my_goal">
+        <h4>내가 참여한 목표</h4>
+        {% for goal in participate_goal %}
+        <div class="main_card">
+          <a href="{% url 'groups:main' goal.pk %}" class="a_deco">{{goal.name}}</a>
+        </div>
+        {% endfor %}
+    </div>
+
     <div class="my_info">
       <ul class="my_info_list">
         {% if not user.profile.image %}
