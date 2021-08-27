@@ -80,3 +80,16 @@ li {
 .nav_plusList.clicked {
   display: block;
 }
+
+.nav_bar {
+  display: none;
+}
+
+/* @media screen and (max-width: 710px) {
+  .nav_block {
+    display: none;
+  }
+  .nav_bar {
+    display: block;
+  }
+} */
