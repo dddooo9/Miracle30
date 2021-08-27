@@ -14,6 +14,7 @@
     {% endif %}
     <div class="nav_userText">
       <h3 class="nav_userName">{{request.user.profile.nickname}}</h3>
+      <h4 class="nav_star">별 헤는 밤</h4>
       <a href="{% url 'users:mypage' %}" class="nav_mypage a_deco">마이페이지</a>
     </div>
   </div>
@@ -34,7 +35,7 @@
         </li>
         {% endif %}
         {% endfor %}
-        
+
         {% for goal in request.user.members.all %}
         {% if goal.category == 'study' %}
         <li class="nav_goal">
@@ -80,7 +81,7 @@
         </li>
         {% endif %}
         {% endfor %}
-        
+
         {% for goal in request.user.members.all %}
         {% if goal.category == 'etc' %}
         <li class="nav_goal">
