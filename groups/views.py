@@ -8,12 +8,14 @@ from django.utils import timezone
 
 def main(request, goal_id):
     level = []
-    count_list = []
+    total_name = []
     goal = get_object_or_404(Goal, pk=goal_id)
     board = get_board(goal)
     member_count = goal.member.count() + 1
     for date in board['dates']:
-        count = goal.certifies.filter(created=date).count()
+        certifies = goal.certifies.filter(created=date)
+        count = certifies.count()
+        
         if count == 0:
             success_level = 1
         elif count <= member_count * (1/4):
@@ -25,13 +27,20 @@ def main(request, goal_id):
         else:
             success_level = 5
         level.append(success_level)
-        count_list.append(count)
+        
+        daily_name = []
+        for certify in certifies:
+            name = certify.user.username
+            daily_name.append(name)
+        total_name.append(daily_name)
+        
     context = {
         'goal': goal,
         'dates': board['dates'],
         'member_count': member_count,
         'level': level,
-        'count': count_list
+        'name': total_name
+
     }
     return render(request, 'groups/main.html', context)
 
