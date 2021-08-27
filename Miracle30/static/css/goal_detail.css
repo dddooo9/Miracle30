@@ -30,6 +30,14 @@
   width: 90%;
 }
 
+tr {
+  height: 35px;
+}
+
+td {
+  padding-right: var(--padding-large);
+}
+
 .detail_btns {
   margin: var(--padding-large);
 }

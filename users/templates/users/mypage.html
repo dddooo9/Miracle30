@@ -10,22 +10,25 @@
     <button class="btn clicked my_goalBtn">나의 목표 보기</button>
     <button class="btn my_infoBtn">개인 정보 보기</button>
   </div>
+
   <div class="my_content">
     <div class="my_goal">
+      <div class="my_make">
         <h4>내가 개설한 목표</h4>
         {% for goal in my_goal %}
-        <div class="main_card">
+        <div class="my_goalItem">
           <a href="{% url 'groups:main' goal.pk %}" class="a_deco">{{goal.name}}</a>
         </div>
         {% endfor %}
-    </div>
-    <div class="my_goal">
+      </div>
+      <div class="my_join">
         <h4>내가 참여한 목표</h4>
         {% for goal in participate_goal %}
-        <div class="main_card">
+        <div class="my_goalItem">
           <a href="{% url 'groups:main' goal.pk %}" class="a_deco">{{goal.name}}</a>
         </div>
         {% endfor %}
+      </div>
     </div>
 
     <div class="my_info">
@@ -37,6 +40,7 @@
         {% endif %}
         <li>아이디<span>{{user}}</span></li>
         <li>닉네임<span>{{user.profile.nickname}}</span></li>
+        <li>별⭐⭐<span>별 헤는 밤</span></li>
       </ul>
       <a href="{% url 'users:mypage_update' %}" class="btn1 btn_center">개인정보 수정</a>
     </div>

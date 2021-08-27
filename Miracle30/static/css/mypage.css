@@ -1,3 +1,7 @@
+.my_tab {
+  display: flex;
+}
+
 .btn {
   color: var(--main-orange-color);
   border: 1px solid var(--main-orange-color);
@@ -24,31 +28,25 @@
   border-radius: 0.3em;
 }
 
-.my_tab {
-  display: flex;
-}
-
 .my_content {
-  padding: var(--padding-large);
+  margin-top: var(--padding-large);
 }
 
 /* goal */
 
-.my_goal {
-  width: 100%;
-  overflow-x: auto;
-  padding: var(--padding-large) 0;
+.my_make,
+.my_join {
+  border: 1px solid var(--white-color);
+  border-radius: 5px;
+  font-size: 1.2rem;
+  padding: var(--padding-small) var(--padding-large);
+  background-color: var(--white-dark-color);
+  transition: 0.5s;
+  margin-bottom: var(--padding-large);
 }
 
-table {
-  border-collapse: collapse;
-}
-
-th,
-td {
-  border: 0.5px solid;
-  text-align: center;
-  padding: var(--padding-small);
+.my_goalItem {
+  padding: 3px 0;
 }
 
 /* info */
