@@ -41,7 +41,10 @@ def create_goal(request):
     new_goal.start_date = request.POST['start_date']
     new_goal.fee = request.POST['fee']
     new_goal.member_limit = request.POST['member_limit']
+    
 
+    request.user.profile.cash -= 500
+    request.user.profile.save()
     # 인증 방식이 수치인 경우 인증 기준의 값과 단위를 db에 저장
     if request.POST['certify_method'] == 'figure':
         new_goal.criteria = request.POST['criteria']
@@ -89,4 +92,9 @@ def participate_goal(request, goal_id):
         request.user.members.remove(goal)
     else:
         request.user.members.add(goal)
+        request.user.profile.cash -= goal.fee
+    
+    request.user.profile.save()
+
+
     return redirect('main:goal_detail', goal_id)

@@ -17,23 +17,33 @@
   font-weight: 800;
 }
 
-.goal_check {
-  width: 100%;
-  overflow-x: auto;
-  padding: var(--padding-large) 0;
+/* btns */
+.goal_verify {
+  display: flex;
+  justify-content: center;
 }
 
-table {
-  border-collapse: collapse;
+.goal_verify > a {
+  margin: var(--padding-micro);
 }
 
-th,
-td {
-  border: 0.5px solid;
-  text-align: center;
-  padding: var(--padding-small);
+/* star board */
+.level1 {
+  background-color: white;
 }
 
-.goal_certify {
-  padding: var(--padding-large) 0;
+.level2 {
+  background-color: rgba(253, 204, 0, 0.25);
+}
+
+.level3 {
+  background-color: rgba(253, 204, 0, 0.5);
+}
+
+.level4 {
+  background-color: rgba(253, 204, 0, 0.75);
+}
+
+.level5 {
+  background-color: rgb(253, 204, 0);
 }

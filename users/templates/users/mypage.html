@@ -40,7 +40,7 @@
         {% endif %}
         <li>아이디<span>{{user}}</span></li>
         <li>닉네임<span>{{user.profile.nickname}}</span></li>
-        <li>별⭐⭐<span>별 헤는 밤</span></li>
+        <li>⭐{{user.profile.cash}}별</span></li>
       </ul>
       <a href="{% url 'users:mypage_update' %}" class="btn1 btn_center">개인정보 수정</a>
     </div>
