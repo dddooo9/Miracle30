@@ -20,11 +20,11 @@
     background-color:rgb(253, 204, 0);
 }
 </style>
-{#<!-- JavaScript Bundle with Popper -->#}
-{#<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>#}
-{#<!-- CSS only -->#}
-{#<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">#}
-{#<link rel="stylesheet" href="{% static 'css/main.css' %}">#}
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
 
 
 <section class="main">
@@ -51,30 +51,43 @@
         <!-- 잔디밭 1~10일 -->
         <tr>
           {% for i in "x"|rjust:"10" %}
+          <p hidden class="level{{ level|index_1:forloop.counter0 }}">{{ name|index_1:forloop.counter0 }}</p>
             <th class="level{{ level|index_1:forloop.counter0 }}">{{ name|index_1:forloop.counter0 }}</th>
           {% endfor %}
         </tr>
         <!-- 날짜 10~20일 -->
         <tr>
-          {% for i in "x"|rjust:"10" %}
-          <th>{{ dates|index_2:forloop.counter0|date:'m/d' }}</th>
+            {% for i in "x"|rjust:"10" %}
+            <th>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" index="{{ forloop.counter0 }}">
+                  {{ dates|index_2:forloop.counter0|date:'m/d' }}
+                </button>
+            </th>
           {% endfor %}
         </tr>
         <!-- 잔디밭 10~20일 -->
         <tr>
           {% for i in "x"|rjust:"10" %}
+          <p hidden class="level{{ level|index_2:forloop.counter0 }}">{{ name|index_2:forloop.counter0 }}</p>
             <th class="level{{ level|index_2:forloop.counter0 }}">{{ name|index_2:forloop.counter0 }}</th>
           {% endfor %}
         </tr>
         <!-- 날짜 20~30일 -->
         <tr>
-          {% for i in "x"|rjust:"10" %}
-          <th>{{ dates|index_3:forloop.counter0|date:'m/d' }}</th>
+            {% for i in "x"|rjust:"10" %}
+            <th>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" index="{{ forloop.counter0 }}">
+                  {{ dates|index_3:forloop.counter0|date:'m/d' }}
+                </button>
+            </th>
           {% endfor %}
         </tr>
         <!-- 잔디밭 20~30일 -->
         <tr>
           {% for i in "x"|rjust:"10" %}
+          <p hidden class="level{{ level|index_3:forloop.counter0 }}">{{ name|index_3:forloop.counter0 }}</p>
             <th class="level{{ level|index_3:forloop.counter0 }}">{{ name|index_3:forloop.counter0 }}</th>
           {% endfor %}
         </tr>
@@ -109,5 +122,5 @@
   </div>
 </div>
 </section>
-
+<script src="{% static 'js/group_main.js' %}"></script>
 {% endblock %}
