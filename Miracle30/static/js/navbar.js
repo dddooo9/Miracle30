@@ -9,8 +9,3 @@ for (let i = 0; i < triBtn.length; i++) {
     sublist[i].classList.toggle("clicked");
   });
 }
-
-plusBtn.addEventListener("click", () => {
-  plusBtn.classList.toggle("clicked");
-  plusList.classList.toggle("clicked");
-});
