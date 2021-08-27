@@ -42,7 +42,7 @@
           </tr>
           <tr>
             <td>참가비</td>
-            <td>{{goal.fee}}</td>
+            <td>⭐<span id="fee">{{goal.fee}}</span>별</td>
           </tr>
           <tr>
             <td>모집인원</td>
@@ -65,15 +65,17 @@
       <a href="{% url 'main:update_goal' goal.pk %}" class="btn3 a_deco">수정</a>
       <a href="{% url 'main:delete_goal' goal.pk %}" class="btn3 a_deco">삭제</a>
       {% else %}
-      <a href="{% url 'main:participate_goal' goal.pk %}">
+      <a href="{% url 'main:participate_goal' goal.pk %}" class="btn3 a_deco">
         {% if isMember %}
-        <a href="{#" class="btn3 a_deco">참여취소</a>
+            참여취소
         {% else %}
-        <a href="{#" class="btn3 a_deco">참여</a>
+            참여
         {% endif %}
       </a>
       {% endif %}
     </div>
   </div>
 </section>
+
+<script src="{% static 'js/goal_detail.js' %}"></script>
 {% endblock %}
