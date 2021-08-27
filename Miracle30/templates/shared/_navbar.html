@@ -35,6 +35,13 @@
         {% endif %}
         {% endfor %}
         
+        {% for goal in request.user.members.all %}
+        {% if goal.category == 'study' %}
+        <li class="nav_goal">
+          <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
       </ul>
     </li>
     <li>
@@ -43,7 +50,15 @@
       </button>
       취미
       <ul class="sublist">
-        {% for goal in request.user.goal_set.all %} <!--manager 출력-->
+        {% for goal in request.user.goal_set.all %}
+        {% if goal.category == 'hobby' %}
+        <li class="nav_goal">
+          <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+
+        {% for goal in request.user.members.all %}
         {% if goal.category == 'hobby' %}
         <li class="nav_goal">
           <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
@@ -66,7 +81,7 @@
         {% endif %}
         {% endfor %}
         
-        {% for goal in request.user.members.all %} <!--member 출력-->
+        {% for goal in request.user.members.all %}
         {% if goal.category == 'etc' %}
         <li class="nav_goal">
           <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
