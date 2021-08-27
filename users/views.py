@@ -1,9 +1,26 @@
+from django.db.models import manager
 from django.shortcuts import render
-
+from main.models import Goal
 
 def mypage(request):
     user = request.user
-    return render(request, 'users/mypage.html', {'user': user})
+    goals = Goal.objects.all()
+
+    my_goal = []
+    participate_goal = []
+
+    for goal in goals:
+        if goal.manager == user:
+            my_goal.append(goal)
+        elif user in goal.member.all():
+            participate_goal.append(goal)
+    
+    context = {
+        'user':user,
+        'my_goal':my_goal,
+        'participate_goal':participate_goal
+    }
+    return render(request, 'users/mypage.html', context)
 
 
 def mypage_update(request):
@@ -14,3 +31,6 @@ def mypage_update(request):
         user.save()
         return render(request, 'users/mypage.html', {'user': user})
     return render(request, 'users/mypage_update.html', {'user': user})
+
+
+
