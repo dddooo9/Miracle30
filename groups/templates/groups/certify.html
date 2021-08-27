@@ -2,10 +2,8 @@
 
 {% block content %}
 <section class="main">
+  <h1>인증하기</h1>
   <div class="container">
-    <h1>
-      인증하기
-    </h1>
     <form action="{% url 'groups:certify' goal.id %}" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       {% if goal.certify_method == 'text' %}

@@ -6,129 +6,127 @@
 
 <section class="main">
   <h1 class="title"><b>{{goal.name}}</b> 수정</h1>
-  <div class="container">
-    <form action="{% url 'main:update_goal' goal.pk%}" method="post">
-      {% csrf_token %}
-      <div class="add_container">
-        <table>
-          <tr>
-            <td>카테고리</td>
-            <td>
-              <select name="category" id="category" required>
-                {% if goal.category == "study" %}
-                <option value="study" selected>공부</option>
-                {% else %}
-                <option value="study">공부</option>
-                {% endif %}
+  <form action="{% url 'main:update_goal' goal.pk%}" method="post">
+    {% csrf_token %}
+    <div class="add_container">
+      <table>
+        <tr>
+          <td>카테고리</td>
+          <td>
+            <select name="category" id="category" required>
+              {% if goal.category == "study" %}
+              <option value="study" selected>공부</option>
+              {% else %}
+              <option value="study">공부</option>
+              {% endif %}
 
-                {% if goal.category == "hobby" %}
-                <option value="hobby" selected>취미</option>
-                {% else %}
-                <option value="hobby">취미</option>
-                {% endif %}
+              {% if goal.category == "hobby" %}
+              <option value="hobby" selected>취미</option>
+              {% else %}
+              <option value="hobby">취미</option>
+              {% endif %}
 
-                {% if goal.category == "etc" %}
-                <option value="etc" selected>기타</option>
-                {% else %}
-                <option value="etc">기타</option>
-                {% endif %}
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td>인증방식</td>
-            <td>
-              <select name="certify_method" id="certify" required>
-                {% if goal.certify_method == "image" %}
-                <option value="image" selected>이미지</option>
-                {% else %}
-                <option value="image">이미지</option>
-                {% endif %}
+              {% if goal.category == "etc" %}
+              <option value="etc" selected>기타</option>
+              {% else %}
+              <option value="etc">기타</option>
+              {% endif %}
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>인증방식</td>
+          <td>
+            <select name="certify_method" id="certify" required>
+              {% if goal.certify_method == "image" %}
+              <option value="image" selected>이미지</option>
+              {% else %}
+              <option value="image">이미지</option>
+              {% endif %}
 
-                {% if goal.certify_method == "text" %}
-                <option value="text" selected>텍스트</option>
-                {% else %}
-                <option value="text">텍스트</option>
-                {% endif %}
+              {% if goal.certify_method == "text" %}
+              <option value="text" selected>텍스트</option>
+              {% else %}
+              <option value="text">텍스트</option>
+              {% endif %}
 
-                {% if goal.certify_method == "figure" %}
-                <option value="figure" selected>수치</option>
-                {% else %}
-                <option value="figure">수치</option>
-                {% endif %}
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td>목표 시작 날짜</td>
-            <td>
-              <input type="date" name="start_date" class="date_input" value="{{goal.start_date|date:'Y-m-d'}}" required>
-            </td>
-          </tr>
-          <tr>
-            <td>목표 마감 날짜</td>
-            <td>
-              <input type="date" name="deadline" class="date_input" value="{{goal.deadline|date:'Y-m-d'}}" required>
-            </td>
-          </tr>
-          <tr>
-            <td>참가비</td>
-            <td>
-              <input type="number" name="fee" class="input1" value="{{goal.fee}}" required>
-            </td>
-          </tr>
-          <tr class="make_title">
-            <td>목표 이름</td>
-            <td>
-              <input class="input1" name="name" value="{{goal.name}}" required>
-            </td>
-          </tr>
-          <tr class="make_content">
-            <td>목표 설정</td>
-            <td>
-              <textarea name="description" required>{{goal.description}}</textarea>
-            </td>
-          </tr>
-          <tr class="make_people">
-            <td>참여 인원</td>
-            <td>
-              <input type="number" name="member_limit" value="{{goal.member_limit}}" class="input1" required>
-            </td>
-          </tr>
-          <tr>
-            <td>수치 : 기준값</td>
-            <td>
-              <input type="number" name="value" value="{{goal.value}}" class="input1">
-            </td>
-          </tr>
-          <tr>
-            <td>수치 : 단위</td>
-            <td>
-              <input name="unit" value="{{goal.unit}}" class="input1">
-            </td>
-          </tr>
-          <tr>
-            <td>기준</td>
-            <td>
-              <select name="criteria" id="criteria">
-                {% if goal.criteria %}
-                <option value="true" selected>이상</option>
-                {% else %}
-                <option value="true">이상</option>
-                {% endif %}
+              {% if goal.certify_method == "figure" %}
+              <option value="figure" selected>수치</option>
+              {% else %}
+              <option value="figure">수치</option>
+              {% endif %}
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>목표 시작 날짜</td>
+          <td>
+            <input type="date" name="start_date" class="date_input" value="{{goal.start_date|date:'Y-m-d'}}" required>
+          </td>
+        </tr>
+        <tr>
+          <td>목표 마감 날짜</td>
+          <td>
+            <input type="date" name="deadline" class="date_input" value="{{goal.deadline|date:'Y-m-d'}}" required>
+          </td>
+        </tr>
+        <tr>
+          <td>참가비</td>
+          <td>
+            <input type="number" name="fee" class="input1" value="{{goal.fee}}" required>
+          </td>
+        </tr>
+        <tr class="make_title">
+          <td>목표 이름</td>
+          <td>
+            <input class="input1" name="name" value="{{goal.name}}" required>
+          </td>
+        </tr>
+        <tr class="make_content">
+          <td>목표 설정</td>
+          <td>
+            <textarea name="description" required>{{goal.description}}</textarea>
+          </td>
+        </tr>
+        <tr class="make_people">
+          <td>참여 인원</td>
+          <td>
+            <input type="number" name="member_limit" value="{{goal.member_limit}}" class="input1" required>
+          </td>
+        </tr>
+        <tr>
+          <td>수치 : 기준값</td>
+          <td>
+            <input type="number" name="value" value="{{goal.value}}" class="input1">
+          </td>
+        </tr>
+        <tr>
+          <td>수치 : 단위</td>
+          <td>
+            <input name="unit" value="{{goal.unit}}" class="input1">
+          </td>
+        </tr>
+        <tr>
+          <td>기준</td>
+          <td>
+            <select name="criteria" id="criteria">
+              {% if goal.criteria %}
+              <option value="true" selected>이상</option>
+              {% else %}
+              <option value="true">이상</option>
+              {% endif %}
 
-                {% if goal.criteria %}
-                <option value="false">이하</option>
-                {% else %}
-                <option value="false" selected>이하</option>
-                {% endif %}
-              </select>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <button type="submit" class="btn1 btn_center">수정하기</button>
-    </form>
-  </div>
+              {% if goal.criteria %}
+              <option value="false">이하</option>
+              {% else %}
+              <option value="false" selected>이하</option>
+              {% endif %}
+            </select>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <button type="submit" class="btn1 btn_center">수정하기</button>
+  </form>
 </section>
 {% endblock %}
