@@ -29,12 +29,13 @@
 }
 
 .my_content {
-  padding: var(--padding-large) 0;
+  margin-top: var(--padding-large);
 }
 
 /* goal */
 
-.my_goal {
+.my_make,
+.my_join {
   border: 1px solid var(--white-color);
   border-radius: 5px;
   font-size: 1.2rem;
