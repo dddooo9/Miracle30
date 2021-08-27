@@ -36,9 +36,9 @@
       {% else %}
       <a href="{% url 'main:participate_goal' goal.pk %}">
         {% if isMember %}
-        참여 취소
+        <a href="{#" class="btn3 a_deco">참여취소</a>
         {% else %}
-        참여
+        <a href="{#" class="btn3 a_deco">참여</a>
         {% endif %}
       </a>
       {% endif %}
