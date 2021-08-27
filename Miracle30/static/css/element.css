@@ -73,3 +73,11 @@ select {
 select:focus {
   outline: none;
 }
+
+/* textarea */
+textarea {
+  height: 40px;
+  width: 200px;
+  border: 1.7px solid var(--white-color);
+  background-color: var(--white-dark-color);
+}

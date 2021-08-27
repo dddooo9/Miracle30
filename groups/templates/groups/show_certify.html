@@ -2,17 +2,23 @@
 {% load static %}
 {% block content %}
 
-{% for certify in certifies %}
+<section class="main">
+  <h1 class="title">인증</h1>
+  <div class="container">
+    {% for certify in certifies %}
     <p>{{ certify.user }}</p>
     <p>{{ certify.created }}</p>
     {% if goal.certify_method == 'image' %}
-        {% if certify.image %}
-            <img src="{{ certify.image.url }}" alt="image" width="200px" height="200px">
-        {% endif %}
-    {% elif goal.certify_method == 'text' %}
-        <p>{{ certify.text }}</p>
-    {% else %}
-        <p>{{ certify.value }}</p>
+    {% if certify.image %}
+    <img src="{{ certify.image.url }}" alt="image" width="200px" height="200px">
     {% endif %}
-{% endfor %}
+    {% elif goal.certify_method == 'text' %}
+    <p>{{ certify.text }}</p>
+    {% else %}
+    <p>{{ certify.value }}</p>
+    {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
 {% endblock %}
