@@ -17,7 +17,7 @@
       <!-- 날짜 1~10일 -->
         <tr>
           {% for i in "x"|rjust:"10" %}
-            <th>{{ dates|index_1:forloop.counter0 }}</th>
+            <th>{{ dates|index_1:forloop.counter0|date:'m/d' }}</th>
           {% endfor %}
         </tr>
       <!-- 잔디밭 1~10일 -->
@@ -29,7 +29,7 @@
       <!-- 날짜 10~20일 -->
         <tr>
           {% for i in "x"|rjust:"10" %}
-            <th>{{ dates|index_2:forloop.counter0 }}</th>
+            <th>{{ dates|index_2:forloop.counter0|date:'m/d' }}</th>
           {% endfor %}
         </tr>
       <!-- 잔디밭 10~20일 -->
@@ -41,7 +41,7 @@
       <!-- 날짜 20~30일 -->
         <tr>
           {% for i in "x"|rjust:"10" %}
-            <th>{{ dates|index_3:forloop.counter0 }}</th>
+            <th>{{ dates|index_3:forloop.counter0|date:'m/d' }}</th>
           {% endfor %}
         </tr>
       <!-- 잔디밭 20~30일 -->

@@ -70,7 +70,7 @@ def get_board(goal):    # 도장판의 날짜와 성공 여부를 리턴하는 �
     achievements = []
     for i in range(30):
         date = goal.start_date + timedelta(days=i)
-        dates.append(date.strftime('%-m/%-d'))
+        dates.append(date)
         # 성공 여부
         certify = goal.certifies.filter(created=date)
         if certify:  # 날짜에 해당하는 인증이 있으면
