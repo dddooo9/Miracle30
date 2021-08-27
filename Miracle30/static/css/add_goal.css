@@ -1,28 +1,26 @@
-.goal_name {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: var(--padding-large) 0;
+tr {
+  height: 45px;
 }
 
-.goal_name > input {
-  width: 60%;
-  text-align: center;
+td {
+  padding-right: var(--padding-large);
+}
+
+.date_input {
+  height: 40px;
+  border: 1.7px solid var(--white-color);
   background-color: var(--white-dark-color);
-  height: 60px;
-  width: 60%;
-  border: none;
-  color: var(--grey-dark-color);
-  font-size: var(--font-large);
+  text-align-last: center;
 }
 
-.goal_amount {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  padding: var(--padding-large) 0;
+.date_input:focus,
+textarea:focus {
+  outline: none;
 }
 
-.goal_amount > input {
-  margin: 0 12px;
+textarea {
+  height: 40px;
+  width: 200px;
+  border: 1.7px solid var(--white-color);
+  background-color: var(--white-dark-color);
 }
