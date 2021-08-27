@@ -2,38 +2,47 @@
 {% load static %}
 
 {% block content %}
+
+<link rel="stylesheet" href="{% static 'css/goal_detail.css' %}">
 <section class="main">
-    <h1>{{goal.name}}</h1>
-    <p>카테고리 : {{goal.category}}</p>
-    <p>인증방식 : {{goal.certify_method}}</p>
-    <p>매니저 : {{goal.manager}}</p>
-    <p>설명 : {{goal.description}}</p>
-    <p>작성 날짜 : {{goal.created}}</p>
-    <p>시행 날짜 : {{goal.start_date}}</p>
-    <p>마감 날짜 : {{goal.deadline}}</p>
-    <p>참가비 : {{goal.fee}}</p>
-    <p>모집인원 : {{goal.member.count}}/{{goal.member_limit}}명</p>
-    {% if goal.certify_method == 'figure' %}
-      <p>인증 기준 : {{goal.value}}{{goal.unit}}
+  <div class="container">
+    <div class="detail_container">
+      <div class="detail_title">
+        <h1 class="title text_center">{{goal.name}}</h1>
+      </div>
+      <div class="detail_main">
+        <p>카테고리 : {{goal.category}}</p>
+        <p>인증방식 : {{goal.certify_method}}</p>
+        <p>매니저 : {{goal.manager}}</p>
+        <p>설명 : {{goal.description}}</p>
+        <p>작성 날짜 : {{goal.created}}</p>
+        <p>시행 날짜 : {{goal.start_date}}</p>
+        <p>마감 날짜 : {{goal.deadline}}</p>
+        <p>참가비 : {{goal.fee}}</p>
+        <p>모집인원 : {{goal.member.count}}/{{goal.member_limit}}명</p>
+        {% if goal.certify_method == 'figure' %}
+        <p>인증 기준 : {{goal.value}}{{goal.unit}}
           {% if goal.criteria%} 이상
           {% else %} 이하
           {% endif %}
-      </p>
-    {% endif %}
-
-    <div>
-        {% if request.user == goal.manager %}
-            <a href="{% url 'main:update_goal' goal.pk %}">수정</a>
-            <a href="{% url 'main:delete_goal' goal.pk %}">삭제</a>
-        {% else %}
-            <a href="{% url 'main:participate_goal' goal.pk %}">
-            {% if isMember %}
-                참여 취소
-            {% else %}
-                참여
-            {% endif %}
-            </a>
+        </p>
         {% endif %}
+      </div>
     </div>
+    <div class="detail_btns">
+      {% if request.user == goal.manager %}
+      <a href="{% url 'main:update_goal' goal.pk %}" class="btn3 a_deco">수정</a>
+      <a href="{% url 'main:delete_goal' goal.pk %}" class="btn3 a_deco">삭제</a>
+      {% else %}
+      <a href="{% url 'main:participate_goal' goal.pk %}">
+        {% if isMember %}
+        <a href="{#" class="btn3 a_deco">참여취소</a>
+        {% else %}
+        <a href="{#" class="btn3 a_deco">참여</a>
+        {% endif %}
+      </a>
+      {% endif %}
+    </div>
+  </div>
 </section>
 {% endblock %}

@@ -1,29 +1,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
+<section class="main">
+  <div class="container">
     <h1>
-    새로운 글 작성하기
+      인증하기
     </h1>
     <form action="{% url 'groups:certify' goal.id %}" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {% if goal.certify_method == 'text' %}
-            <div class="form-group">
-                <label>인증 내용</label>
-                <textarea class="form-control" name="text" required></textarea>
-            </div>
-        {% elif goal.certify_method == 'image' %}
-            <div class="form-group">
-                <label>인증 사진</label>
-                <input type="file" name="image" accept="image/*" required>
-            </div>
-        {% else %}
-            <div class="form-group">
-                <label>인증 수치</label>
-                <input type="text" class="form-control" name="figure" required>
-            </div>
-        {% endif %}
-        <input type="submit" value="글 작성" class="btn btn-outline-primary">
+      {% csrf_token %}
+      {% if goal.certify_method == 'text' %}
+      <div class="form-group">
+        <h3>텍스트로 인증하는 방법을 선택하셨어요!</h3>
+        <label>텍스트</label><br>
+        <textarea name="text" required></textarea>
+      </div>
+      {% elif goal.certify_method == 'image' %}
+      <div class="form-group">
+        <h3>사진으로 인증하는 방법을 선택하셨어요!</h3>
+        <input type="file" name="image" accept="image/*" required>
+      </div>
+      {% else %}
+      <div class="form-group">
+        <h3>수치로 인증하는 방법을 선택하셨여요!</h3>
+        <label>인증 수치</label>
+        <input type="text" class="input1" name="figure" required>
+      </div>
+      {% endif %}
+      <input type="submit" value="글 작성" class="btn1 btn_center">
     </form>
-</div>
+  </div>
+</section>
 {% endblock %}

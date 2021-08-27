@@ -11,9 +11,11 @@
   --sub-orange-color: #fce403;
   --point-green-color: #bde609;
 
-  --padding-small: 12px;
-  --padding-medium: 14px;
-  --padding-large: 20px;
+  /* 1em = 16px */
+  --padding-micro: 0.5em;
+  --padding-small: 0.75em;
+  --padding-medium: 0.87em;
+  --padding-large: 1.25em;
 
   --layout-padding: 3em;
 

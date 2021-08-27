@@ -1,0 +1,21 @@
+.main_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  perspective: 500px;
+}
+
+.main_card {
+  border: 1px solid var(--white-color);
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: var(--padding-large) 0;
+  background-color: var(--white-dark-color);
+  transition: 0.5s;
+}
+
+.main_card:hover {
+  transform: translateZ(20px);
+  box-shadow: 0 0 5px var(--point-green-color);
+}
