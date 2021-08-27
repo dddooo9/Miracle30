@@ -10,4 +10,6 @@ urlpatterns = [
     path('add_goal/', views.add_goal, name="add_goal"),
     path('create_goal/', views.create_goal, name="create_goal"),
     path('update_goal/<int:goal_id>', views.update_goal, name="update_goal"),
+    path('delete_goal/<int:goal_id>', views.delete_goal, name="delete_goal"),
+    path('participate_goal/<int:goal_id>', views.participate_goal, name="participate_goal"),
 ]

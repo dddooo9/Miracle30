@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load index %}
 {% block content %}
+
 
 <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
@@ -23,27 +25,65 @@
   <div class="goal_check">
     <table>
       <thead>
+      <!-- 날짜 1~10일 -->
         <tr>
-          {% for date in dates %}
-          <th>{{ date }}</th>
+          {% for i in "x"|rjust:"10" %}
+            <th>{{ dates|index_1:forloop.counter0 }}</th>
+          {% endfor %}
+        </tr>
+      <!-- 인증 1~10일 -->
+        <tr>
+          {% for i in "x"|rjust:"10" %}
+            {% if achievements|index_1:forloop.counter0  == True %}
+                <th>O</th>
+            {% elif achievements|index_1:forloop.counter0 == False %}
+                <th>X</th>
+            {% else %}
+                <th> </th>
+            {% endif %}
+          {% endfor %}
+        </tr>
+      <!-- 날짜 10~20일 -->
+        <tr>
+          {% for i in "x"|rjust:"10" %}
+            <th>{{ dates|index_2:forloop.counter0 }}</th>
+          {% endfor %}
+        </tr>
+      <!-- 인증 10~20일 -->
+        <tr>
+          {% for i in "x"|rjust:"10" %}
+            {% if achievements|index_2:forloop.counter0  == True %}
+                <th>O</th>
+            {% elif achievements|index_2:forloop.counter0 == False %}
+                <th>X</th>
+            {% else %}
+                <th> </th>
+            {% endif %}
+          {% endfor %}
+        </tr>
+      <!-- 날짜 20~30일 -->
+        <tr>
+          {% for i in "x"|rjust:"10" %}
+            <th>{{ dates|index_3:forloop.counter0 }}</th>
+          {% endfor %}
+        </tr>
+      <!-- 인증 20~30일 -->
+        <tr>
+          {% for i in "x"|rjust:"10" %}
+            {% if achievements|index_3:forloop.counter0  == True %}
+                <th>O</th>
+            {% elif achievements|index_3:forloop.counter0 == False %}
+                <th>X</th>
+            {% else %}
+                <th> </th>
+            {% endif %}
           {% endfor %}
         </tr>
       </thead>
-      <tr>
-        {% for achievement in achievements %}
-        {% if achievement %}
-        <th>O</th>
-        {% elif achievement == False %}
-        <th>X</th>
-        {% else %}
-        <th> </th>
-        {% endif %}
-        {% endfor %}
-      </tr>
     </table>
   </div>
   <div class="goal_certify">
-    <a href="#" class="btn1 btn_right">인증하기</a>
+    <a href="{% url 'groups:certify' goal.id %}" class="btn1 btn_right">인증하기</a>
   </div>
 </section>
 

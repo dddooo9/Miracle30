@@ -20,8 +20,10 @@ class Goal(models.Model):
     description = models.TextField()    # 목표 설명
     created = models.DateField()    # 목표 글 작성 날짜
     start_date = models.DateField()     # 목표 시행 날짜
+    deadline = models.DateField()  # 참여 마감 날짜
     fee = models.IntegerField(default=500)      # 참가비
     value = models.FloatField(null=True, blank=True)     # 인증 방식이 수치인 경우만
     unit = models.CharField(max_length=10, null=True, blank=True)     # 인증 방식이 수치인 경우만
     criteria = models.BooleanField(default=True)    # 인증 방식이 수치인 경우만. true면 이상, false면 이하로 처리
     member = models.ManyToManyField(User, related_name='members')    # 참여 인원
+    member_limit = models.IntegerField(default=10)  # 참여 인원수 제한
