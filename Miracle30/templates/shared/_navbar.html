@@ -3,96 +3,102 @@
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 
 <nav class="nav_container">
-  <h2 class="nav_title text_center">
-    <a href="{% url 'main:main_login' %}" class="a_deco miracle">MIRACLE</a>
-  </h2>
-  <div class="nav_user">
-    {% if not user.profile.image %}
-    <img class="nav_logo" src="{% static 'img/logo.png' %}" alt="">
-    {% else %}
-    <img class="nav_logo" src="{{ request.user.profile.image.url }}" alt="">
-    {% endif %}
-    <div class="nav_userText">
-      <h3 class="nav_userName">{{request.user.profile.nickname}}</h3>
-      <h4 class="nav_star">⭐<span id="cash">{{request.user.profile.cash}}</span>별</h4>
-      <a href="{% url 'users:mypage' %}" class="nav_mypage a_deco">마이페이지</a>
+  <div class="nav_block">
+    <h2 class="nav_title text_center">
+      <a href="{% url 'main:main_login' %}" class="a_deco miracle">MIRACLE</a>
+    </h2>
+    <div class="nav_user">
+      {% if not user.profile.image %}
+      <img class="nav_logo" src="{% static 'img/logo.png' %}" alt="">
+      {% else %}
+      <img class="nav_logo" src="{{ request.user.profile.image.url }}" alt="">
+      {% endif %}
+      <div class="nav_userText">
+        <h3 class="nav_userName">{{request.user.profile.nickname}}</h3>
+        <h4 class="nav_star">⭐<span id="cash">{{request.user.profile.cash}}</span>별</h4>
+        <a href="{% url 'users:mypage' %}" class="nav_mypage a_deco">마이페이지</a>
+      </div>
     </div>
+    <ul class="nav_category list">
+      <li>
+        <a href="{% url 'main:goal_main' %}" class="a_deco">전체 목록 조회</a>
+      </li>
+      <li>
+        <button class="nav_toggleBtn triangle">
+          <i class="fas fa-caret-right"></i>
+        </button>
+        공부
+        <ul class="sublist">
+          {% for goal in request.user.goal_set.all %}
+          {% if goal.category == 'study' %}
+          <li class="nav_goal">
+            <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
+          </li>
+          {% endif %}
+          {% endfor %}
+
+          {% for goal in request.user.members.all %}
+          {% if goal.category == 'study' %}
+          <li class="nav_goal">
+            <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </li>
+      <li>
+        <button class="nav_toggleBtn triangle">
+          <i class="fas fa-caret-right"></i>
+        </button>
+        취미
+        <ul class="sublist">
+          {% for goal in request.user.goal_set.all %}
+          {% if goal.category == 'hobby' %}
+          <li class="nav_goal">
+            <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
+          </li>
+          {% endif %}
+          {% endfor %}
+
+          {% for goal in request.user.members.all %}
+          {% if goal.category == 'hobby' %}
+          <li class="nav_goal">
+            <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </li>
+      <li>
+        <button class="nav_toggleBtn triangle">
+          <i class="fas fa-caret-right"></i>
+        </button>
+        기타
+        <ul class="sublist">
+          {% for goal in request.user.goal_set.all %}
+          {% if goal.category == 'etc' %}
+          <li class="nav_goal">
+            <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
+          </li>
+          {% endif %}
+          {% endfor %}
+
+          {% for goal in request.user.members.all %}
+          {% if goal.category == 'etc' %}
+          <li class="nav_goal">
+            <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </li>
+    </ul>
+    <a href="{% url 'account_logout' %}" class="btn2 btn_center">로그아웃</a>
   </div>
-  <ul class="nav_category list">
-    <li>
-      <a href="{% url 'main:goal_main' %}" class="a_deco">전체 목록 조회</a>
-    </li>
-    <li>
-      <button class="nav_toggleBtn triangle">
-        <i class="fas fa-caret-right"></i>
-      </button>
-      공부
-      <ul class="sublist">
-        {% for goal in request.user.goal_set.all %}
-        {% if goal.category == 'study' %}
-        <li class="nav_goal">
-          <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
-        </li>
-        {% endif %}
-        {% endfor %}
-
-        {% for goal in request.user.members.all %}
-        {% if goal.category == 'study' %}
-        <li class="nav_goal">
-          <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
-        </li>
-        {% endif %}
-        {% endfor %}
-      </ul>
-    </li>
-    <li>
-      <button class="nav_toggleBtn triangle">
-        <i class="fas fa-caret-right"></i>
-      </button>
-      취미
-      <ul class="sublist">
-        {% for goal in request.user.goal_set.all %}
-        {% if goal.category == 'hobby' %}
-        <li class="nav_goal">
-          <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
-        </li>
-        {% endif %}
-        {% endfor %}
-
-        {% for goal in request.user.members.all %}
-        {% if goal.category == 'hobby' %}
-        <li class="nav_goal">
-          <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
-        </li>
-        {% endif %}
-        {% endfor %}
-      </ul>
-    </li>
-    <li>
-      <button class="nav_toggleBtn triangle">
-        <i class="fas fa-caret-right"></i>
-      </button>
-      기타
-      <ul class="sublist">
-        {% for goal in request.user.goal_set.all %}
-        {% if goal.category == 'etc' %}
-        <li class="nav_goal">
-          <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
-        </li>
-        {% endif %}
-        {% endfor %}
-
-        {% for goal in request.user.members.all %}
-        {% if goal.category == 'etc' %}
-        <li class="nav_goal">
-          <a href="{% url 'groups:main' goal.id %}" class="a_deco">{{ goal.name }}</a>
-        </li>
-        {% endif %}
-        {% endfor %}
-      </ul>
-    </li>
-  </ul>
-  <a href="{% url 'account_logout' %}" class="btn2 btn_center">로그아웃</a>
+  </div>
+  <a href="#" class="nav_bar">
+    <i class="fas fa-bars"></i>
+  </a>
 </nav>
 
 <script src="{% static 'js/navbar.js' %}"></script>
