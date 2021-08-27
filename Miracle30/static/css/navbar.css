@@ -85,11 +85,18 @@ li {
   display: none;
 }
 
-/* @media screen and (max-width: 710px) {
+/* @media screen and (max-width: 800px) {
+  .nav_container {
+    width: 100px;
+    padding: var(--padding-large);
+  }
   .nav_block {
     display: none;
   }
   .nav_bar {
     display: block;
+    font-size: var(--font-large);
+    text-align: center;
+    color: var(--black-color);
   }
 } */
