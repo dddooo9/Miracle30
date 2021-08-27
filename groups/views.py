@@ -24,7 +24,15 @@ def certify(request, goal_id):
         text = request.POST.get('text')
         image = request.FILES.get('image')
         figure = request.POST.get('figure')
-        Certify.objects.create(goal=goal, user=user, created=created, text=text, image=image, figure=figure)
+        achievement = True
+        if goal.certify_method == 'figure':
+            if goal.criteria:  # 이상이어야 성공
+                if float(figure) < goal.value:
+                    achievement = False
+            else:  # 이하여야 성공
+                if float(figure) > goal.value:
+                    achievement = False
+        Certify.objects.create(goal=goal, user=user, created=created, text=text, image=image, figure=figure, achievement=achievement)
         return redirect('groups:main', goal_id)
     return render(request, 'groups/certify.html', {'goal': goal})
 
@@ -92,8 +100,11 @@ def show_certify(request, goal_id):
     certifies = goal.certifies.all()
     return render(request, 'groups/show_certify.html', {'goal': goal, 'certifies': certifies})
 
-def select(request):
-    return render(request, 'groups/select.html')
+def group_list(request):
+    return render(request, 'groups/group_list.html')
+
+def group_detail(request):
+    return render(request, 'groups/group_detail.html')
 
 def make_group(request):
     return render(request, 'groups/make_group.html')

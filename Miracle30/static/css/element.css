@@ -48,3 +48,16 @@
   border: none;
   color: var(--grey-dark-color);
 }
+
+/* select */
+select {
+  text-align-last: center;
+  width: 100px;
+  height: 40px;
+  border: 1.7px solid var(--white-color);
+  background-color: var(--white-dark-color);
+}
+
+select:focus {
+  outline: none;
+}

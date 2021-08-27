@@ -2,72 +2,108 @@
 {% load static %}
 {% block content %}
 
-<link rel="stylesheet" href="{% static 'css/select.css' %}">
+<link rel="stylesheet" href="{% static 'css/add_goal.css' %}">
 
 <section class="main">
   <h1 class="title">그룹 만들기</h1>
   <div class="container">
     <form action="{% url 'main:create_goal' %}" method="post">
-    {% csrf_token %}
-    <div class="make_group">
-      <div>
-        카테고리
-        <select name="category" id="category" required>
-          <option value="study">공부</option>
-          <option value="hobby">취미</option>
-          <option value="etc">기타</option>
-        </select>
+      {% csrf_token %}
+      <div class="add_container">
+        <table>
+          <tr>
+            <td>카테고리</td>
+            <td>
+              <!-- <div class="select">
+                <ul class="default_option" name="category" id="category" required>
+                  <li value="study" class="option" name="category" id="category">공부</li>
+                </ul>
+                <ul class="select_ul">
+                  <li value="study" class="option">공부</li>
+                  <li value="hobby" class="option">취미</li>
+                  <li value="etc" class="o ption">기타</li>
+                </ul>
+              </div> -->
+              <select name="category" id="category" required>
+                <option value="study">공부</option>
+                <option value="hobby">취미</option>
+                <option value="etc">기타</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>인증방식</td>
+            <td>
+              <select name="certify_method" id="certify" required>
+                <option value="image">이미지</option>
+                <option value="text">텍스트</option>
+                <option value="figure">수치</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>목표 시작 날짜</td>
+            <td>
+              <input type="date" name="start_date" class="date_input" required>
+            </td>
+          </tr>
+          <tr>
+            <td>목표 마감 날짜</td>
+            <td>
+              <input type="date" name="deadline" class="date_input" required>
+            </td>
+          </tr>
+          <tr>
+            <td>참가비</td>
+            <td>
+              <input type="number" name="fee" class="input1" required>
+            </td>
+          </tr>
+          <tr class="make_title">
+            <td>목표 이름</td>
+            <td>
+              <input class="input1" name="name" required>
+            </td>
+          </tr>
+          <tr class="make_content">
+            <td>목표 설정</td>
+            <td>
+              <textarea name="description" required></textarea>
+            </td>
+          </tr>
+          <tr class="make_people">
+            <td>참여 인원</td>
+            <td>
+              <input type="number" name="member_limit" class="input1" required>
+            </td>
+          </tr>
+          <tr>
+            <td>수치 : 기준값</td>
+            <td>
+              <input type="number" name="value" class="input1">
+            </td>
+          </tr>
+          <tr>
+            <td>수치 : 단위</td>
+            <td>
+              <input name="unit" class="input1">
+            </td>
+          </tr>
+          <tr>
+            <td>기준</td>
+            <td>
+              <select name="criteria" id="criteria">
+                <option value="true">이상</option>
+                <option value="false">이하</option>
+              </select>
+            </td>
+          </tr>
+        </table>
       </div>
-      <div>
-        인증방식
-        <select name="certify_method" id="certify" required>
-          <option value="image">이미지</option>
-          <option value="text">텍스트</option>
-          <option value="figure">수치</option>
-        </select>
-      </div>
-      <div>
-          목표 시작 날짜
-          <input type="date" name="start_date" required>
-      </div>
-      <div>
-        목표 마감 날짜
-        <input type="date" name="deadline" required>
-      </div>
-      <div>
-          참가비
-          <input type="number" name="fee" class="input1" required>
-      </div>
-      <div class="make_title">
-        목표 이름
-        <input class="input1" name="name" required>
-      </div>
-      <div class="make_content">
-        목표 설명
-        <textarea name="description" required></textarea>
-      </div>
-      <div class="make_people">
-        참여 인원수
-        <input type="number" name="member_limit" class="input1" required>
-      </div>
-      <div>
-        수치 : 기준값
-        <input type="number" name="value" class="input1">
-      </div>
-      <div>
-        수치 : 단위
-        <input name="unit" class="input1">
-      </div>
-      <div>
-        기준
-        <select name="criteria" id="criteria">
-            <option value="true">이상</option>
-            <option value="false">이하</option>
-        </select>
-      </div>
-    </div>
-    <button type="submit" class="btn1 btn_center">만들기</button>
+      <button type="submit" class="btn1 btn_center">만들기</button>
     </form>
   </div>
 </section>
+
+<script src="{% static 'js/add_goal.js' %}"></script>
 {% endblock %}
