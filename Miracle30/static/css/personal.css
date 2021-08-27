@@ -1,9 +1,9 @@
-.goal_boxes {
+.psn_boxes {
   display: flex;
   justify-content: center;
 }
 
-.goal_box {
+.psn_box {
   border: 1px solid;
   text-align: center;
   width: 15%;
@@ -12,17 +12,7 @@
   margin: 0 12px;
 }
 
-.goal_day {
+.psn_day {
   font-size: 2.5rem;
   font-weight: 800;
-}
-
-/* btns */
-.goal_verify {
-  display: flex;
-  justify-content: center;
-}
-
-.goal_verify > a {
-  margin: var(--padding-micro);
 }

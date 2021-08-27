@@ -52,13 +52,16 @@
 
 /* 인풋 스타일1 */
 .input1 {
-  /* width: 60%; */
   text-align: center;
   background-color: var(--white-dark-color);
   height: 40px;
   width: 100px;
   border: none;
   color: var(--grey-dark-color);
+}
+
+.input1.focus {
+  outline: none;
 }
 
 /* select */
@@ -80,4 +83,27 @@ textarea {
   width: 200px;
   border: 1.7px solid var(--white-color);
   background-color: var(--white-dark-color);
+}
+
+/* table */
+.table_container {
+  padding: var(--padding-large) 0;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table_container > table {
+  border-collapse: collapse;
+  margin: auto;
+}
+
+.table_container th,
+.table_container td {
+  border: 0.5px solid;
+  text-align: center;
+  padding: var(--padding-small);
+}
+
+.table_container tr {
+  height: 46px;
 }
