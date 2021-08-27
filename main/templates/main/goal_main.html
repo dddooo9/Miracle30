@@ -2,19 +2,19 @@
 {% load static %}
 {% block content %}
 
-<link rel="stylesheet" href="{% static 'css/select.css' %}">
+<link rel="stylesheet" href="{% static 'css/group_main.css' %}">
 
 <section class="main">
   <h1 class="title">그룹 참여하기</h1>
   <div class="container">
-    <div class="select_group">
+    <div class="main_container">
       {% for goal in goals %}
-        <div class="select_card">
-            <a href="{% url 'main:goal_detail' goal.pk %}">{{goal.name}}</a>
-        </div>
+      <div class="main_card">
+        <a href="{% url 'main:goal_detail' goal.pk %}" class="a_deco">{{goal.name}}</a>
+      </div>
       {% endfor %}
     </div>
-    <button class="btn1 btn_center"><a href="{% url 'main:add_goal' %}">그룹 만들기</a></button>
+    <a href="{% url 'main:add_goal' %}" class="btn1 btn_center a_deco">그룹 만들기</a>
   </div>
 </section>
 {% endblock %}

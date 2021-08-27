@@ -100,8 +100,11 @@ def show_certify(request, goal_id):
     certifies = goal.certifies.all()
     return render(request, 'groups/show_certify.html', {'goal': goal, 'certifies': certifies})
 
-def select(request):
-    return render(request, 'groups/select.html')
+def group_list(request):
+    return render(request, 'groups/group_list.html')
+
+def group_detail(request):
+    return render(request, 'groups/group_detail.html')
 
 def make_group(request):
     return render(request, 'groups/make_group.html')
