@@ -26,3 +26,24 @@
 .goal_verify > a {
   margin: var(--padding-micro);
 }
+
+/* star board */
+.level1 {
+  background-color: white;
+}
+
+.level2 {
+  background-color: rgba(253, 204, 0, 0.25);
+}
+
+.level3 {
+  background-color: rgba(253, 204, 0, 0.5);
+}
+
+.level4 {
+  background-color: rgba(253, 204, 0, 0.75);
+}
+
+.level5 {
+  background-color: rgb(253, 204, 0);
+}

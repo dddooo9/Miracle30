@@ -7,11 +7,31 @@ from django.utils import timezone
 
 
 def main(request, goal_id):
+    level = []
+    count_list = []
     goal = get_object_or_404(Goal, pk=goal_id)
     board = get_board(goal)
+    member_count = goal.member.count() + 1
+    for date in board['dates']:
+        count = goal.certifies.filter(created=date).count()
+        if count == 0:
+            success_level = 1
+        elif count <= member_count * (1/4):
+            success_level = 2
+        elif count <= member_count * (2/4):
+            success_level = 3
+        elif count <= member_count * (3/4):
+            success_level = 4
+        else:
+            success_level = 5
+        level.append(success_level)
+        count_list.append(count)
     context = {
         'goal': goal,
         'dates': board['dates'],
+        'member_count': member_count,
+        'level': level,
+        'count': count_list
     }
     return render(request, 'groups/main.html', context)
 
@@ -99,6 +119,7 @@ def show_certify(request, goal_id):
     goal = Goal.objects.get(pk=goal_id)
     certifies = goal.certifies.all()
     return render(request, 'groups/show_certify.html', {'goal': goal, 'certifies': certifies})
+
 
 def group_list(request):
     return render(request, 'groups/group_list.html')

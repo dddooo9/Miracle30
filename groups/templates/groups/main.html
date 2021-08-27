@@ -9,6 +9,7 @@
   <div class="goal_container">
     <h1 class="goal_title text_center">{{ goal.name }}</h1>
     <h3 class="goal_subtitle text_center">하루 {{ goal.goal_page }}페이지 독서하기</h3>
+    <p>참여인원: {{ member_count }}</p>
   </div>
 
   <div class="goal_check table_container">
@@ -23,7 +24,7 @@
         <!-- 잔디밭 1~10일 -->
         <tr>
           {% for i in "x"|rjust:"10" %}
-          <th style="background-color:#ffc107;"></th>
+          <th class="level{{ level|index_1:forloop.counter0 }}"></th>
           {% endfor %}
         </tr>
         <!-- 날짜 10~20일 -->
@@ -35,7 +36,7 @@
         <!-- 잔디밭 10~20일 -->
         <tr>
           {% for i in "x"|rjust:"10" %}
-          <th style="background-color:#ffc107;"></th>
+          <th class="level{{ level|index_2:forloop.counter0 }}"></th>
           {% endfor %}
         </tr>
         <!-- 날짜 20~30일 -->
@@ -47,7 +48,7 @@
         <!-- 잔디밭 20~30일 -->
         <tr>
           {% for i in "x"|rjust:"10" %}
-          <th style="background-color:#ffc107;"></th>
+          <th class="level{{ level|index_3:forloop.counter0 }}"></th>
           {% endfor %}
         </tr>
       </thead>
