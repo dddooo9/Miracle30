@@ -6,7 +6,7 @@
 }
 
 .detail_container {
-  width: 340px;
+  width: 400px;
   border: 1px solid var(--white-color);
   background-color: var(--white-dark-color);
   margin: var(--padding-large);
@@ -35,7 +35,7 @@ tr {
 }
 
 td {
-  padding-right: var(--padding-large);
+  padding: 0 var(--padding-large);
 }
 
 .detail_btns {
