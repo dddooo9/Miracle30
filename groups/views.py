@@ -1,10 +1,17 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from main.models import Goal
-from .models import Certify
+from .models import Certify, User
 from datetime import datetime, timedelta
 import datetime
 from django.utils import timezone
 
+def date_check(request, goal_id):
+    goal = get_object_or_404(Goal, pk=goal_id)
+    today = datetime.date.today()
+    if today < goal.start_date:
+        return redirect('main:goal_detail', goal_id)
+    else:
+        return redirect('groups:main', goal_id)
 
 def main(request, goal_id):
     level = []
@@ -128,3 +135,11 @@ def group_detail(request):
 
 def make_group(request):
     return render(request, 'groups/make_group.html')
+
+
+def delete_member(request, goal_id, user_id):
+    goal = Goal.objects.get(pk=goal_id)
+
+    delete_user = User.objects.get(pk=user_id)
+    delete_user.members.remove(goal)
+    return redirect('groups:main', goal_id)

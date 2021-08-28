@@ -172,6 +172,14 @@
         </div>
       </article>
       <article id="tab3" class="content-container__content certify_container">
+          {{goal.manager}}
+        {% for member in goal.member.all %}
+        {% if request.user == goal.manager %}
+            <a href="{% url 'groups:delete_member' goal.id member.id %}">{{member}}</a>
+        {% else %}
+            {{member}}
+        {% endif %}
+        {% endfor %}
         {% for certify in certifies %}
         <ul class="certify_list">
           <li>아이디<span>{{ certify.user }}</span></li>
