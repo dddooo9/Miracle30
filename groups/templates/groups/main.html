@@ -89,6 +89,11 @@
         </table>
       </article>
       <article id="tab2" class="content-container__content">
+        <!-- <div class="psn_top">
+          <h1 class="text_center">{{ goal.name }}</h1>
+          <h3 class="text_center">하루 {{ goal.goal_page }}페이지 독서하기</h3>
+        </div> -->
+        {% if 30 >= start_days %}
         <div class="psn_boxes">
           <div class="psn_box start">
             시작<br><span class="psn_day">{{ start_days }}</span><br>일째
@@ -100,6 +105,11 @@
             성공<br><span class="psn_day">{{ success_days }}</span><br>일째
           </div>
         </div>
+        {% else %}
+        <div class="psn_boxes">
+            <h2>{{dates|index_1:0}} ~ {{dates|index_1:29}}</h2>
+          </div>
+        {% endif %}
         <div class="psn_check table_container">
           <table>
             <thead>
@@ -181,9 +191,11 @@
     </section>
   </div>
 
+  {% if 30 >= start_days %}
   <div class="goal_verify">
     <a class="btn1" href="{% url 'groups:certify' goal.id %}">인증하기</a>
   </div>
+  {% endif %}
 
   <!-- The Modal -->
   <div id="myModal" class="modal">

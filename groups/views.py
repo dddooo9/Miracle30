@@ -69,6 +69,9 @@ def certify(request, goal_id):
             else:  # 이하여야 성공
                 if float(figure) > goal.value:
                     achievement = False
+        if achievement:
+            user.profile.cash += 20
+            user.profile.save()
         Certify.objects.create(goal=goal, user=user, created=created, text=text, image=image, figure=figure, achievement=achievement)
         return redirect('groups:main', goal_id)
     return render(request, 'groups/certify.html', {'goal': goal})
