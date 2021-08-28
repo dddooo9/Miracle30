@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from main.models import Goal
-from .models import Certify
+from .models import Certify, User
 from datetime import datetime, timedelta
 import datetime
 from django.utils import timezone
@@ -135,3 +135,11 @@ def group_detail(request):
 
 def make_group(request):
     return render(request, 'groups/make_group.html')
+
+
+def delete_member(request, goal_id, user_id):
+    goal = Goal.objects.get(pk=goal_id)
+
+    delete_user = User.objects.get(pk=user_id)
+    delete_user.members.remove(goal)
+    return redirect('groups:main', goal_id)
