@@ -1,0 +1,23 @@
+.certify_container {
+  width: 40%;
+}
+.certify_list {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.certify_list li {
+  margin-bottom: 10px;
+  background: #f9f9ff;
+  display: block;
+  line-height: 40px;
+  padding: 0px 18px;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  color: #777777;
+}
+
+span {
+  float: right;
+}

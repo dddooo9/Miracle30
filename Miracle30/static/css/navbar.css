@@ -9,7 +9,7 @@ ul {
   padding-left: 0;
 }
 
-li {
+.nav_category li {
   padding-top: var(--padding-small);
 }
 
@@ -63,23 +63,23 @@ li {
 }
 
 /* 카테고리 추가 */
-.nav_plus {
+/* .nav_plus {
   padding-bottom: var(--padding-medium);
-}
+} */
 
-.nav_plus .nav_toggleBtn {
+/* .nav_plus .nav_toggleBtn {
   width: 100%;
   text-align: center;
   font-size: 30px;
-}
+} */
 
-.nav_plusList {
+/* .nav_plusList {
   display: none;
 }
 
 .nav_plusList.clicked {
   display: block;
-}
+} */
 
 .nav_bar {
   display: none;
