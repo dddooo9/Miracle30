@@ -179,7 +179,7 @@
               {% for member in goal.member.all %}
               {% if request.user == goal.manager %}
               <a href="{% url 'groups:delete_member' goal.id member.id %}" class="a_deco"
-                onclick="return confirm('정말로 팀원은 퇴장시키겠습니까?😥')">{{member}}, </a>
+                onclick="return confirm('정말로 팀원은 퇴장시키겠습니까?😥')">&nbsp;&nbsp;{{member}}</a>
               {% else %}
               {{member}}
               {% endif %}
