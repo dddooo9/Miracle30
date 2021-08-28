@@ -179,7 +179,7 @@
               {% for member in goal.member.all %}
               {% if request.user == goal.manager %}
               <a href="{% url 'groups:delete_member' goal.id member.id %}" class="a_deco"
-                onclick="return confirm('정말로 팀원은 퇴장시키겠습니까?😥')">&nbsp;&nbsp;{{member}}</a>
+                onclick="return confirm('정말로 팀원을 퇴장시키겠습니까?😥')">&nbsp;&nbsp;{{member}}</a>
               {% else %}
               {{member}}
               {% endif %}
@@ -196,7 +196,7 @@
           <li>인증날짜<span>{{ certify.created }}</span></li>
           {% if goal.certify_method == 'image' %}
           {% if certify.image %}
-          <img src="{{ certify.image.url }}" alt="image" width=auto height="200px">
+          <img src="{{ certify.image.url }}" alt="image" width="auto" height="200px">
           {% endif %}
           {% elif goal.certify_method == 'text' %}
           <li>인증내용<span>{{ certify.text }}</span></li>
