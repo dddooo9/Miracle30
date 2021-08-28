@@ -172,14 +172,24 @@
         </div>
       </article>
       <article id="tab3" class="content-container__content certify_container">
-          {{goal.manager}}
-        {% for member in goal.member.all %}
-        {% if request.user == goal.manager %}
-            <a href="{% url 'groups:delete_member' goal.id member.id %}">{{member}}</a>
-        {% else %}
-            {{member}}
-        {% endif %}
-        {% endfor %}
+        <ul class="certify_list member">
+          <li><i class="fas fa-crown"></i> 매니저<span>{{goal.manager}}</span></li>
+          <li><i class="fas fa-user-circle"></i> 팀원
+            <span>
+              {% for member in goal.member.all %}
+              {% if request.user == goal.manager %}
+              <a href="{% url 'groups:delete_member' goal.id member.id %}" class="a_deco"
+                onclick="return confirm('정말로 팀원은 퇴장시키겠습니까?😥')">{{member}}, </a>
+              {% else %}
+              {{member}}
+              {% endif %}
+              {% endfor %}
+            </span>
+          </li>
+          <li>
+            퇴장시키고 싶은 팀원을 클릭해주세요! 매니저만 팀원을 퇴장시킬 수 있습니다.
+          </li>
+        </ul>
         {% for certify in certifies %}
         <ul class="certify_list">
           <li>아이디<span>{{ certify.user }}</span></li>
