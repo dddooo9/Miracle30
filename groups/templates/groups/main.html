@@ -200,9 +200,11 @@
   </div>
 
   {% if 30 >= start_days %}
+  {% if not isCertify %}
   <div class="goal_verify">
     <a class="btn1" href="{% url 'groups:certify' goal.id %}">인증하기</a>
   </div>
+  {% endif %}
   {% endif %}
 
   <!-- The Modal -->

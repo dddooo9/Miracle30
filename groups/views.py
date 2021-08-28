@@ -43,7 +43,9 @@ def main(request, goal_id):
         
     certifiy_list = goal.certifies.all()
     status = get_status(goal)
-
+    today = datetime.date.today()
+    today_certify = certifiy_list.filter(created=today)
+    isCertify = today_certify.filter(user=request.user).exists()
     context = {
         'goal': goal,
         'dates': board['dates'],
@@ -55,6 +57,7 @@ def main(request, goal_id):
         'start_days': status['start_days'],
         'success_days': status['success_days'],
         'continuity_days': status['continuity_days'],
+        'isCertify':isCertify,
     }
 
     return render(request, 'groups/main.html', context)
