@@ -96,6 +96,12 @@
   color: var(--grey-dark-color);
 }
 
+.certify_list.member {
+  width: 50%;
+  border: 2px solid var(--point-green-color);
+  border-radius: 5px;
+}
+
 /* modal btn */
 .btn4 {
   color: var(--black-color);
