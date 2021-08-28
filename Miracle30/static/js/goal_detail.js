@@ -10,7 +10,7 @@ participateBtn.addEventListener("click", (e) => {
         alert(`그룹에 참여하기 위해서는 ${fee.textContent}만큼의 별이 필요합니다.`);
         e.preventDefault();
     }
-  } else{ // 참여 취소
+  } else if (participateBtn.textContent.includes("취소")) { // 참여 취소
     if(alertCashBack()) e.preventDefault();
   }
   
