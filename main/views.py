@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from django.utils import *
 from .models import Goal
+from datetime import datetime
+import datetime
+
 
 def main_login(request):
     return render(request, 'main/main_login.html')
@@ -11,7 +14,8 @@ def main_logout(request):
 
 
 def goal_main(request):
-    goals = Goal.objects.all()
+    today = datetime.date.today()
+    goals = Goal.objects.filter(deadline__gte=today)    
     return render(request, 'main/goal_main.html', {'goals':goals})
 
 
