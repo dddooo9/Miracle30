@@ -1,5 +1,5 @@
 from django.db.models import manager
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from main.models import Goal
 
 def mypage(request):
@@ -29,7 +29,7 @@ def mypage_update(request):
         user.profile.nickname = request.POST.get('nickname')
         user.profile.image = request.FILES.get('image')
         user.save()
-        return render(request, 'users/mypage.html', {'user': user})
+        return redirect('users:mypage')
     return render(request, 'users/mypage_update.html', {'user': user})
 
 
