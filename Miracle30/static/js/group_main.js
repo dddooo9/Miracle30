@@ -32,3 +32,14 @@ modalBtn.forEach((elem, index) => {
     modalBody.textContent = data;
   });
 });
+
+
+const certifyBtn = document.querySelector(".btn1");
+
+certifyBtn.addEventListener("click", (e) => {
+    if(tryCertify()) e.preventDefault();
+})
+
+function tryCertify(){
+    return !confirm(`인증은 한번 등록하면 수정/삭제할 수 없습니다.`);
+}
