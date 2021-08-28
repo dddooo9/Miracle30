@@ -16,21 +16,3 @@ infoBtn.addEventListener("click", () => {
   goal.style.display = "none";
   info.style.display = "block";
 });
-
-// function goalClick() {
-//   // my_goalBtn class -> clicked 추가
-//   // my_info class -> clicked 삭제
-//   goal.classList.toggle("clicked");
-//   info.classList.toggle("clicked");
-//   goal.style.display = "block";
-//   info.style.display = "none";
-// }
-
-// function infoClick() {
-//   // my_goalBtn class -> clicked 삭제
-//   // my_info class -> clicked 추가
-//   goal.classList.toggle("clicked");
-//   info.classList.toggle("clicked");
-//   goal.style.display = "none";
-//   info.style.display = "block";
-// }

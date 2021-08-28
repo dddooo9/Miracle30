@@ -1,3 +1,60 @@
+/* tab */
+.tab_container {
+  display: flex;
+}
+
+.tab_item {
+  cursor: pointer;
+}
+
+.tab_item:hover {
+  background-color: var(--main-orange-color);
+  transition: background-color 0.4s ease-in-out;
+}
+
+.tab_item:hover .tab_item_title {
+  color: #fff;
+  transition: color 0.4s ease-in-out;
+}
+
+.tab_item.active {
+  border-bottom: 2px solid var(--main-orange-color);
+}
+
+.tab_item.active .tab_item_title {
+  color: var(--main-orange-color);
+}
+
+.tab_item.active:hover {
+  background-color: var(--main-orange-color);
+  transition: background-color 0.4s ease-in-out;
+}
+
+.tab_item.active:hover .tab_item_title {
+  color: #fff;
+  transition: color 0.4s ease-in-out;
+}
+
+.tab_item_title {
+  display: inline-block;
+  color: #999;
+  font-weight: 700;
+  text-decoration: none;
+  margin: 15px;
+}
+
+.content-container {
+  padding: 10px;
+}
+
+.content-container__content {
+  display: none;
+}
+
+.content-container__content.target {
+  display: block;
+}
+
 /* btns */
 .goal_verify {
   display: flex;
@@ -8,6 +65,7 @@
   margin: var(--padding-micro);
 }
 
+/* tab1----------- */
 /* star board */
 .level1 {
   background-color: white;

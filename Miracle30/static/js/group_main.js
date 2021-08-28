@@ -24,8 +24,9 @@ const pTag = document.getElementsByTagName("p"),
 
 modalBtn.forEach((elem, index) => {
   elem.addEventListener("click", (e) => {
+    console.log(elem, index);
     modal.style.display = "block";
-    let data = pTag[index - 2].textContent;
+    let data = pTag[index].textContent;
     data = data.replace(/'/gi, "");
     data = data.substr(1, data.length - 2);
     modalBody.textContent = data;

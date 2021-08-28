@@ -2,22 +2,26 @@
 {% load static %}
 {% block content %}
 
+<link rel="stylesheet" href="{% static 'css/show_certify.css' %}">
+
 <section class="main">
   <h1 class="title">인증</h1>
-  <div class="container">
-    {% for certify in certifies %}
-    <p>{{ certify.user }}</p>
-    <p>{{ certify.created }}</p>
-    {% if goal.certify_method == 'image' %}
-    {% if certify.image %}
-    <img src="{{ certify.image.url }}" alt="image" width="200px" height="200px">
-    {% endif %}
-    {% elif goal.certify_method == 'text' %}
-    <p>{{ certify.text }}</p>
-    {% else %}
-    <p>{{ certify.value }}</p>
-    {% endif %}
-    {% endfor %}
+  <div class="certify_container">
+    <ul class="certify_list">
+      {% for certify in certifies %}
+      <li>아이디<span>{{ certify.user }}</span></li>
+      <li>아이디<span>{{ certify.created }}</span></li>
+      {% if goal.certify_method == 'image' %}
+      {% if certify.image %}
+      <img src="{{ certify.image.url }}" alt="image" width="200px" height="200px">
+      {% endif %}
+      {% elif goal.certify_method == 'text' %}
+      <li>아이디<span>{{ certify.text }}</span></li>
+      {% else %}
+      <li>아이디<span>{{ certify.value }}</span></li>
+      {% endif %}
+      {% endfor %}
+    </ul>
   </div>
 </section>
 
