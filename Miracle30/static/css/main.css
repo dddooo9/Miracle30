@@ -87,6 +87,15 @@
   background-color: rgb(253, 204, 0);
 }
 
+/* star */
+.light {
+  color: var(--main-orange-color);
+}
+
+.grey {
+  color: var(--grey-dark-color);
+}
+
 /* modal btn */
 .btn4 {
   color: var(--black-color);
