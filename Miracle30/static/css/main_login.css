@@ -10,9 +10,6 @@
   font-weight: 600;
 }
 
-.home_title {
-  font-size: 10vw;
-  font-weight: 800;
-  margin: 0;
-  text-align: center;
+.home_container > img {
+  width: 300px;
 }
