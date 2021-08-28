@@ -18,7 +18,7 @@
         <div class="my_make">
           {% for goal in my_goal %}
           <div class="my_goalItem">
-            <a href="{% url 'groups:main' goal.pk %}" class="a_deco">{{goal.name}}</a>
+            <a href="{% url 'groups:date_check' goal.id %}" class="a_deco">{{goal.name}}</a>
           </div>
           {% endfor %}
         </div>
@@ -28,7 +28,7 @@
         <div class="my_join">
           {% for goal in participate_goal %}
           <div class="my_goalItem">
-            <a href="{% url 'groups:main' goal.pk %}" class="a_deco">{{goal.name}}</a>
+            <a href="{% url 'groups:date_check' goal.id %}" class="a_deco">{{goal.name}}</a>
           </div>
           {% endfor %}
         </div>

@@ -9,9 +9,11 @@
   <div class="container">
     <div class="main_container">
       {% for goal in goals %}
+      {% if goal.member_limit > goal.member.count %}
       <div class="main_card">
         <a href="{% url 'main:goal_detail' goal.pk %}" class="a_deco">{{goal.name}}</a>
       </div>
+      {% endif %}
       {% endfor %}
     </div>
     <a href="{% url 'main:add_goal' %}" class="btn1 btn_center a_deco">그룹 만들기</a>

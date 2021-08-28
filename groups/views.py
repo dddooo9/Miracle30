@@ -5,6 +5,13 @@ from datetime import datetime, timedelta
 import datetime
 from django.utils import timezone
 
+def date_check(request, goal_id):
+    goal = get_object_or_404(Goal, pk=goal_id)
+    today = datetime.date.today()
+    if today < goal.start_date:
+        return redirect('main:goal_detail', goal_id)
+    else:
+        return redirect('groups:main', goal_id)
 
 def main(request, goal_id):
     level = []
