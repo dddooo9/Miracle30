@@ -27,7 +27,8 @@ def mypage_update(request):
     user = request.user
     if request.method == "POST":
         user.profile.nickname = request.POST.get('nickname')
-        user.profile.image = request.FILES.get('image')
+        if request.FILES.get('image'):
+            user.profile.image = request.FILES.get('image')
         user.save()
         return redirect('users:mypage')
     return render(request, 'users/mypage_update.html', {'user': user})
