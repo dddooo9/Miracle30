@@ -196,7 +196,7 @@
           <li>인증날짜<span>{{ certify.created }}</span></li>
           {% if goal.certify_method == 'image' %}
           {% if certify.image %}
-          <img src="{{ certify.image.url }}" alt="image" width="200px" height="200px">
+          <img src="{{ certify.image.url }}" alt="image" width=auto height="200px">
           {% endif %}
           {% elif goal.certify_method == 'text' %}
           <li>인증내용<span>{{ certify.text }}</span></li>
