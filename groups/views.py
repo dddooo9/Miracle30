@@ -34,14 +34,22 @@ def main(request, goal_id):
             daily_name.append(name)
         total_name.append(daily_name)
         
+    certifiy_list = goal.certifies.all()
+    status = get_status(goal)
+
     context = {
         'goal': goal,
         'dates': board['dates'],
         'member_count': member_count,
         'level': level,
-        'name': total_name
-
+        'name': total_name,
+        'certifies': certifiy_list,
+        'achievements': board['achievements'],
+        'start_days': status['start_days'],
+        'success_days': status['success_days'],
+        'continuity_days': status['continuity_days'],
     }
+
     return render(request, 'groups/main.html', context)
 
 
@@ -64,21 +72,6 @@ def certify(request, goal_id):
         Certify.objects.create(goal=goal, user=user, created=created, text=text, image=image, figure=figure, achievement=achievement)
         return redirect('groups:main', goal_id)
     return render(request, 'groups/certify.html', {'goal': goal})
-
-
-def personal(request, goal_id):
-    goal = get_object_or_404(Goal, pk=goal_id)
-    status = get_status(goal)
-    board = get_board(goal)
-    context = {
-        'goal': goal,
-        'start_days': status['start_days'],
-        'success_days': status['success_days'],
-        'continuity_days': status['continuity_days'],
-        'dates': board['dates'],
-        'achievements': board['achievements'],
-    }
-    return render(request, 'groups/personal.html', context)
 
 
 def get_status(goal):   # 시작, 성공, 연속 일수를 리턴하는 함수
@@ -122,12 +115,6 @@ def get_board(goal):    # 도장판의 날짜와 성공 여부를 리턴하는 �
         'achievements': achievements,
     }
     return res
-
-
-def show_certify(request, goal_id):
-    goal = Goal.objects.get(pk=goal_id)
-    certifies = goal.certifies.all()
-    return render(request, 'groups/show_certify.html', {'goal': goal, 'certifies': certifies})
 
 
 def group_list(request):
