@@ -10,7 +10,13 @@
 <section class="main">
   <div class="main_title">
     <h1 class="text_center">{{ goal.name }}</h1>
-    <h3 class="text_center">하루 {{ goal.goal_page }}페이지 독서하기</h3>
+    {% if goal.certify_method == 'figure' %}
+    <h3 class="text_center">하루 {{ goal.value }}{{ goal.unit }}</h3>
+    {% elif goal.certify_method == 'image' %}
+    <h3 class="text_center">매일 이미지 올리기</h3>
+    {% elif goal.certify_method == 'text' %}
+    <h3 class="text_center">매일 글 올리기</h3>
+    {% endif %}
     <h4 class="text_center">참여인원: {{ member_count }}</h4>
   </div>
 
